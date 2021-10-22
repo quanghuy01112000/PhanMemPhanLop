@@ -1,2 +1,4 @@
-#loại trừ tất cả foder tên obj
+#loại trừ tất cả foder tên obj, bin vì có debug
 **/obj
+**/bin
+**/.vs
