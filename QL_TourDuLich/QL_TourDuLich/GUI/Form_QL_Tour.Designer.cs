@@ -61,12 +61,12 @@ namespace QL_TourDuLich
             this.btnDatLai = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvTour = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
             this.MaTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLoaiTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -387,7 +387,7 @@ namespace QL_TourDuLich
             this.btnXemChiTiet.TabIndex = 7;
             this.btnXemChiTiet.Text = "xem chi tiết";
             this.btnXemChiTiet.UseVisualStyleBackColor = true;
-            this.btnXemChiTiet.Click += new System.EventHandler(this.button4_Click);
+            this.btnXemChiTiet.Click += new System.EventHandler(this.btnChiTietTour_Click);
             // 
             // btnDatLai
             // 
@@ -428,18 +428,10 @@ namespace QL_TourDuLich
             this.dgvTour.RowHeadersWidth = 51;
             this.dgvTour.RowTemplate.Height = 24;
             this.dgvTour.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvTour.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTour.Size = new System.Drawing.Size(901, 391);
             this.dgvTour.TabIndex = 4;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1105, 448);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(76, 32);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "thêm";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.dgvTour.SelectionChanged += new System.EventHandler(this.dgvTour_SelectionChanged);
             // 
             // MaTour
             // 
@@ -475,6 +467,16 @@ namespace QL_TourDuLich
             this.Gia.MinimumWidth = 6;
             this.Gia.Name = "Gia";
             this.Gia.ReadOnly = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1105, 448);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(76, 32);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "thêm";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form_QL_Tour
             // 

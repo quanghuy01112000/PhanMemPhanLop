@@ -59,6 +59,7 @@
     <Compile Include="BUS\ChiPhi.cs">
       <DependentUpon>ModelQLTour.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\DAO_QL_DiaDiem.cs" />
     <Compile Include="DAO\DAO_QL_Tour.cs" />
     <Compile Include="BUS\DiaDiem.cs">
       <DependentUpon>ModelQLTour.tt</DependentUpon>
@@ -114,10 +115,19 @@
     <Compile Include="GUI\Form_QL_Tour.Designer.cs">
       <DependentUpon>Form_QL_Tour.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Form_QL_ChiTietTour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_QL_ChiTietTour.Designer.cs">
+      <DependentUpon>Form_QL_ChiTietTour.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Form_QL_Tour.resx">
       <DependentUpon>Form_QL_Tour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_QL_ChiTietTour.resx">
+      <DependentUpon>Form_QL_ChiTietTour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
