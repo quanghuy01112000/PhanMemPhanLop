@@ -24,9 +24,5 @@ namespace QL_TourDuLich.BUS
         {
             return dao.getDanhSachTour();
         }
-        public TourDuLich getTourById(string id)
-        {
-            return dao.getTourById(id);
-        }
     }
 }
