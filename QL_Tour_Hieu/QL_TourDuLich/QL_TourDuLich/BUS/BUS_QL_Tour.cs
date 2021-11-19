@@ -70,5 +70,18 @@ namespace QL_TourDuLich.BUS
         {
             return dao.xoaDiaDiem(MaTour, MaDD, ThuTu);
         }
+        public List<GiaTour> getGiabyMaTour(int Ma)
+        {
+            return dao.getGiabyMaTour(Ma);
+        }
+        public bool isGiaTourHienTai(Object BatDau,Object KetThuc)
+        {
+            DateTime today = DateTime.Now;
+            DateTime ThoiGianBatDau = (DateTime)BatDau;
+            DateTime ThoiGianKetThuc = (DateTime)KetThuc;
+            if (ThoiGianBatDau <= today && ThoiGianKetThuc >= today)
+                return true;
+                return false;
+        }
     }
 }

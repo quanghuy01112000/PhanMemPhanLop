@@ -19,7 +19,7 @@ namespace QL_TourDuLich.DAO
                             join g in db.GiaTours on t.MaTour equals g.MaTour into emty
                             from gia in emty.DefaultIfEmpty()
                             where t.HienThi == true
-                            where gia==null || (gia.ThoiGianBatDau < today && gia.ThoiGianKetThuc > today)
+                            where gia==null || (gia.ThoiGianBatDau <= today && gia.ThoiGianKetThuc >= today)
                             select new {gia = (gia == null) ? 0 : gia.ThanhTien,t.MaTour, t.TenTour, t.LoaiHinhDuLich, t.TrangThai, t.ThamQuans, t.DacDiem,t.NgayBatDau,t.NgayKetThuc};
 
                 foreach (var i in table)
@@ -137,6 +137,8 @@ namespace QL_TourDuLich.DAO
             {
                 TourDuLich tourdb = db.TourDuLiches.Find(tourDL.MaTour);
                 tourdb.DacDiem = tourDL.DacDiem;
+                tourdb.NgayBatDau = tourDL.NgayBatDau;
+                tourdb.NgayKetThuc = tourDL.NgayKetThuc;
                 db.SaveChanges();
             }
             return true;
@@ -181,6 +183,16 @@ namespace QL_TourDuLich.DAO
                 db.SaveChanges();
             }
             return true;
+        }
+        public List<GiaTour> getGiabyMaTour(int Ma)
+        {
+            using (TourDLEntities db = new TourDLEntities())
+            {
+                var table = from gia in db.GiaTours
+                            where gia.MaTour == Ma
+                            select gia;
+                return table.ToList();
+            }
         }
     }
 }

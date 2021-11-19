@@ -61,12 +61,12 @@ namespace QL_TourDuLich
             this.btnDatLai = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvTour = new System.Windows.Forms.DataGridView();
+            this.btnThem = new System.Windows.Forms.Button();
             this.MaTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLoaiTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnThem = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -77,8 +77,7 @@ namespace QL_TourDuLich
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.AutoSize = true;
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
@@ -87,12 +86,12 @@ namespace QL_TourDuLich
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtThanhTien, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtMaTour, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtThanhTien, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtTenTour, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.cbbLoaiHinh, 1, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(940, 93);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(940, 95);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -102,24 +101,24 @@ namespace QL_TourDuLich
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(380, 346);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(367, 350);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // cbbTrangThai
             // 
             this.cbbTrangThai.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbbTrangThai.FormattingEnabled = true;
-            this.cbbTrangThai.Location = new System.Drawing.Point(118, 298);
+            this.cbbTrangThai.Location = new System.Drawing.Point(114, 300);
             this.cbbTrangThai.Margin = new System.Windows.Forms.Padding(4);
             this.cbbTrangThai.Name = "cbbTrangThai";
-            this.cbbTrangThai.Size = new System.Drawing.Size(234, 30);
+            this.cbbTrangThai.Size = new System.Drawing.Size(168, 30);
             this.cbbTrangThai.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 22);
+            this.label1.Location = new System.Drawing.Point(25, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 24);
@@ -130,7 +129,7 @@ namespace QL_TourDuLich
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 91);
+            this.label2.Location = new System.Drawing.Point(17, 93);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 24);
@@ -141,7 +140,7 @@ namespace QL_TourDuLich
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 160);
+            this.label3.Location = new System.Drawing.Point(19, 163);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 24);
@@ -152,7 +151,7 @@ namespace QL_TourDuLich
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 229);
+            this.label4.Location = new System.Drawing.Point(6, 233);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 24);
@@ -163,7 +162,7 @@ namespace QL_TourDuLich
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 299);
+            this.label5.Location = new System.Drawing.Point(4, 303);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 24);
@@ -174,39 +173,39 @@ namespace QL_TourDuLich
             // 
             this.txtMaTour.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtMaTour.Enabled = false;
-            this.txtMaTour.Location = new System.Drawing.Point(118, 20);
+            this.txtMaTour.Location = new System.Drawing.Point(114, 21);
             this.txtMaTour.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaTour.Name = "txtMaTour";
-            this.txtMaTour.Size = new System.Drawing.Size(234, 28);
+            this.txtMaTour.Size = new System.Drawing.Size(168, 28);
             this.txtMaTour.TabIndex = 5;
             // 
             // txtThanhTien
             // 
             this.txtThanhTien.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtThanhTien.Enabled = false;
-            this.txtThanhTien.Location = new System.Drawing.Point(118, 227);
+            this.txtThanhTien.Location = new System.Drawing.Point(114, 231);
             this.txtThanhTien.Margin = new System.Windows.Forms.Padding(4);
             this.txtThanhTien.Name = "txtThanhTien";
-            this.txtThanhTien.Size = new System.Drawing.Size(234, 28);
+            this.txtThanhTien.Size = new System.Drawing.Size(168, 28);
             this.txtThanhTien.TabIndex = 8;
             // 
             // txtTenTour
             // 
             this.txtTenTour.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtTenTour.Location = new System.Drawing.Point(118, 89);
+            this.txtTenTour.Location = new System.Drawing.Point(114, 91);
             this.txtTenTour.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenTour.Name = "txtTenTour";
-            this.txtTenTour.Size = new System.Drawing.Size(234, 28);
+            this.txtTenTour.Size = new System.Drawing.Size(225, 28);
             this.txtTenTour.TabIndex = 6;
             // 
             // cbbLoaiHinh
             // 
             this.cbbLoaiHinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbbLoaiHinh.FormattingEnabled = true;
-            this.cbbLoaiHinh.Location = new System.Drawing.Point(118, 160);
+            this.cbbLoaiHinh.Location = new System.Drawing.Point(114, 160);
             this.cbbLoaiHinh.Margin = new System.Windows.Forms.Padding(4);
             this.cbbLoaiHinh.Name = "cbbLoaiHinh";
-            this.cbbLoaiHinh.Size = new System.Drawing.Size(234, 30);
+            this.cbbLoaiHinh.Size = new System.Drawing.Size(197, 30);
             this.cbbLoaiHinh.TabIndex = 9;
             // 
             // panel1
@@ -270,6 +269,8 @@ namespace QL_TourDuLich
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(562, 44);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
@@ -340,6 +341,8 @@ namespace QL_TourDuLich
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(283, 44);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -348,7 +351,7 @@ namespace QL_TourDuLich
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(990, 447);
+            this.btnSua.Location = new System.Drawing.Point(1200, 451);
             this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(88, 44);
@@ -373,15 +376,15 @@ namespace QL_TourDuLich
             this.panel2.Controls.Add(this.btnThem);
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Controls.Add(this.btnSua);
-            this.panel2.Location = new System.Drawing.Point(15, 206);
+            this.panel2.Location = new System.Drawing.Point(15, 202);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1320, 502);
+            this.panel2.Size = new System.Drawing.Size(1320, 506);
             this.panel2.TabIndex = 2;
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(1186, 447);
+            this.btnXoa.Location = new System.Drawing.Point(831, 41);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(88, 44);
@@ -412,7 +415,7 @@ namespace QL_TourDuLich
             // 
             // btnXemChiTiet
             // 
-            this.btnXemChiTiet.Location = new System.Drawing.Point(973, 41);
+            this.btnXemChiTiet.Location = new System.Drawing.Point(940, 41);
             this.btnXemChiTiet.Margin = new System.Windows.Forms.Padding(4);
             this.btnXemChiTiet.Name = "btnXemChiTiet";
             this.btnXemChiTiet.Size = new System.Drawing.Size(130, 44);
@@ -423,7 +426,7 @@ namespace QL_TourDuLich
             // 
             // btnDatLai
             // 
-            this.btnDatLai.Location = new System.Drawing.Point(1157, 41);
+            this.btnDatLai.Location = new System.Drawing.Point(1158, 41);
             this.btnDatLai.Margin = new System.Windows.Forms.Padding(4);
             this.btnDatLai.Name = "btnDatLai";
             this.btnDatLai.Size = new System.Drawing.Size(130, 44);
@@ -464,12 +467,24 @@ namespace QL_TourDuLich
             this.dgvTour.RowTemplate.Height = 24;
             this.dgvTour.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvTour.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTour.Size = new System.Drawing.Size(905, 398);
+            this.dgvTour.Size = new System.Drawing.Size(905, 402);
             this.dgvTour.TabIndex = 4;
             this.dgvTour.SelectionChanged += new System.EventHandler(this.dgvTour_SelectionChanged);
             // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(998, 453);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(95, 44);
+            this.btnThem.TabIndex = 3;
+            this.btnThem.Text = "thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
             // MaTour
             // 
+            this.MaTour.FillWeight = 70F;
             this.MaTour.HeaderText = "Mã Tour";
             this.MaTour.MinimumWidth = 6;
             this.MaTour.Name = "MaTour";
@@ -502,17 +517,6 @@ namespace QL_TourDuLich
             this.Gia.MinimumWidth = 6;
             this.Gia.Name = "Gia";
             this.Gia.ReadOnly = true;
-            // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(824, 41);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(95, 44);
-            this.btnThem.TabIndex = 3;
-            this.btnThem.Text = "thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // Form_QL_Tour
             // 
@@ -575,13 +579,13 @@ namespace QL_TourDuLich
         private System.Windows.Forms.ComboBox cbLocLoaiTour;
         private System.Windows.Forms.ComboBox cbLocTrangThai;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cbbTrangThai;
+        private System.Windows.Forms.ComboBox cbbLoaiHinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
-        private System.Windows.Forms.ComboBox cbbTrangThai;
-        private System.Windows.Forms.ComboBox cbbLoaiHinh;
     }
 }
 

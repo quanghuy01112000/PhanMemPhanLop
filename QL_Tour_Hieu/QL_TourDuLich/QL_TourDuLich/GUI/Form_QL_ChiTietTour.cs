@@ -26,8 +26,8 @@ namespace QL_TourDuLich.GUI
             txtDacDiem.Text = tour.DacDiem;
             txtTrangThai.Text = tour.TrangThai;
             txtGia.Text = tour.giaTour.ToString();
-            txtNgayBatDau.Text = tour.NgayBatDau.ToString();
-            txtNgayKetThuc.Text = tour.NgayKetThuc.ToString();
+            dtpNgayBatDau.Text = tour.NgayBatDau.ToString();
+            dtpNgayKetThuc.Text = tour.NgayKetThuc.ToString();
 
             dgvDiaDiem.AutoGenerateColumns = false;//chặn tự tạo cột
             dgvDiaDiem.DataSource=tour.dsDiaDiem.ToList();
@@ -35,8 +35,25 @@ namespace QL_TourDuLich.GUI
             dgvDiaDiem.Columns["ThuTu"].DataPropertyName = "ThuTu";
             cbbTenDiaDiem.DataSource = bus.getDanhSachTenDiaDiem();
             countDiaDiem = tourDL.dsDiaDiem.Count();
-        }
 
+            dgvGiaTour.AutoGenerateColumns = false;
+            dgvGiaTour.DataSource = bus.getGiabyMaTour(tour.MaTour);
+            dgvGiaTour.Columns["NgayBatDauGia"].DataPropertyName = "ThoiGianBatDau";
+            dgvGiaTour.Columns[0].DefaultCellStyle.Format = "dd-MM-yyyy";
+            dgvGiaTour.Columns["NgayKetThucGia"].DataPropertyName = "ThoiGianKetThuc";
+            dgvGiaTour.Columns[1].DefaultCellStyle.Format = "dd-MM-yyyy";
+            dgvGiaTour.Columns["GiaTien"].DataPropertyName = "ThanhTien";
+            markGiaTourHienTai();
+        }
+        public void markGiaTourHienTai()
+        {
+            int index=0;
+            foreach (DataGridViewRow row in dgvGiaTour.Rows){
+                if (bus.isGiaTourHienTai(row.Cells[0].Value, row.Cells[1].Value))
+                    index = row.Index;
+            }
+            dgvGiaTour.Rows[0].DefaultCellStyle.BackColor = Color.Red;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -46,10 +63,12 @@ namespace QL_TourDuLich.GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         { 
+            //đổi trên lstTour
+            tourDL.NgayBatDau = dtpNgayBatDau.Value;
+            tourDL.NgayKetThuc = dtpNgayKetThuc.Value;
+            tourDL.DacDiem = txtDacDiem.Text;
             //update csdl
             bus.suaChiTietTour(tourDL);
-            //đổi trên form
-            tourDL.DacDiem = txtDacDiem.Text;
             MessageBox.Show("lưu thành công", "thông báo", MessageBoxButtons.OK);
         }
 
@@ -77,6 +96,16 @@ namespace QL_TourDuLich.GUI
             //sua form
             dgvDiaDiem.DataSource = null;
             dgvDiaDiem.DataSource = tourDL.dsDiaDiem.ToList();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
