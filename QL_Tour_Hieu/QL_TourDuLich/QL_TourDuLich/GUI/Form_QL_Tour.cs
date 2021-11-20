@@ -45,7 +45,7 @@ namespace QL_TourDuLich
             //
             MaTourLonNhat = TourDuLich.lstTours.Last().MaTour;
         }
-       
+
         private void btnChiTietTour_Click(object sender, EventArgs e)
         {
             TourDuLich tour = new TourDuLich();

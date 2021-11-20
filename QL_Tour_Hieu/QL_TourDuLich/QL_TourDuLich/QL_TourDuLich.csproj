@@ -121,6 +121,12 @@
     <Compile Include="GUI\Form_QL_ChiTietTour.Designer.cs">
       <DependentUpon>Form_QL_ChiTietTour.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Form_Them_GiaTour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_Them_GiaTour.Designer.cs">
+      <DependentUpon>Form_Them_GiaTour.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Form_QL_Tour.resx">
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form_QL_ChiTietTour.resx">
       <DependentUpon>Form_QL_ChiTietTour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_Them_GiaTour.resx">
+      <DependentUpon>Form_Them_GiaTour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -43,13 +43,13 @@ namespace QL_TourDuLich.GUI
             dgvGiaTour.Columns["NgayKetThucGia"].DataPropertyName = "ThoiGianKetThuc";
             dgvGiaTour.Columns[1].DefaultCellStyle.Format = "dd-MM-yyyy";
             dgvGiaTour.Columns["GiaTien"].DataPropertyName = "ThanhTien";
-            markGiaTourHienTai();
         }
-        public void markGiaTourHienTai()
+        private void dgvGiaTour_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            foreach (DataGridViewRow row in dgvGiaTour.Rows){
+            foreach (DataGridViewRow row in dgvGiaTour.Rows)
+            {
                 if (bus.isGiaTourHienTai(row.Cells[0].Value, row.Cells[1].Value))
-                    row.Cells[0].Style.BackColor = Color.Red;
+                    row.DefaultCellStyle.ForeColor = Color.Red;
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -105,5 +105,11 @@ namespace QL_TourDuLich.GUI
         {
 
         }
+
+        private void btnThemGia_Click(object sender, EventArgs e)
+        {
+            
+        }
+        
     }
 }
