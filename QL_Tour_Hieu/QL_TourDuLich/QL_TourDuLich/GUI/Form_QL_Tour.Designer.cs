@@ -35,9 +35,9 @@ namespace QL_TourDuLich
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtMaTour = new System.Windows.Forms.TextBox();
-            this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.txtTenTour = new System.Windows.Forms.TextBox();
             this.cbbLoaiHinh = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -61,12 +61,12 @@ namespace QL_TourDuLich
             this.btnDatLai = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvTour = new System.Windows.Forms.DataGridView();
-            this.btnThem = new System.Windows.Forms.Button();
             this.MaTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLoaiTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnThem = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -108,7 +108,7 @@ namespace QL_TourDuLich
             // 
             this.cbbTrangThai.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbbTrangThai.FormattingEnabled = true;
-            this.cbbTrangThai.Location = new System.Drawing.Point(114, 300);
+            this.cbbTrangThai.Location = new System.Drawing.Point(114, 302);
             this.cbbTrangThai.Margin = new System.Windows.Forms.Padding(4);
             this.cbbTrangThai.Name = "cbbTrangThai";
             this.cbbTrangThai.Size = new System.Drawing.Size(168, 30);
@@ -158,6 +158,16 @@ namespace QL_TourDuLich
             this.label4.TabIndex = 3;
             this.label4.Text = "Thành tiền";
             // 
+            // txtThanhTien
+            // 
+            this.txtThanhTien.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtThanhTien.Enabled = false;
+            this.txtThanhTien.Location = new System.Drawing.Point(114, 231);
+            this.txtThanhTien.Margin = new System.Windows.Forms.Padding(4);
+            this.txtThanhTien.Name = "txtThanhTien";
+            this.txtThanhTien.Size = new System.Drawing.Size(168, 28);
+            this.txtThanhTien.TabIndex = 8;
+            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -179,16 +189,6 @@ namespace QL_TourDuLich
             this.txtMaTour.Size = new System.Drawing.Size(168, 28);
             this.txtMaTour.TabIndex = 5;
             // 
-            // txtThanhTien
-            // 
-            this.txtThanhTien.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtThanhTien.Enabled = false;
-            this.txtThanhTien.Location = new System.Drawing.Point(114, 231);
-            this.txtThanhTien.Margin = new System.Windows.Forms.Padding(4);
-            this.txtThanhTien.Name = "txtThanhTien";
-            this.txtThanhTien.Size = new System.Drawing.Size(168, 28);
-            this.txtThanhTien.TabIndex = 8;
-            // 
             // txtTenTour
             // 
             this.txtTenTour.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -202,7 +202,7 @@ namespace QL_TourDuLich
             // 
             this.cbbLoaiHinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbbLoaiHinh.FormattingEnabled = true;
-            this.cbbLoaiHinh.Location = new System.Drawing.Point(114, 160);
+            this.cbbLoaiHinh.Location = new System.Drawing.Point(114, 162);
             this.cbbLoaiHinh.Margin = new System.Windows.Forms.Padding(4);
             this.cbbLoaiHinh.Name = "cbbLoaiHinh";
             this.cbbLoaiHinh.Size = new System.Drawing.Size(197, 30);
@@ -471,17 +471,6 @@ namespace QL_TourDuLich
             this.dgvTour.TabIndex = 4;
             this.dgvTour.SelectionChanged += new System.EventHandler(this.dgvTour_SelectionChanged);
             // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(998, 453);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(95, 44);
-            this.btnThem.TabIndex = 3;
-            this.btnThem.Text = "thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
             // MaTour
             // 
             this.MaTour.FillWeight = 70F;
@@ -517,6 +506,17 @@ namespace QL_TourDuLich
             this.Gia.MinimumWidth = 6;
             this.Gia.Name = "Gia";
             this.Gia.ReadOnly = true;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(998, 453);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(95, 44);
+            this.btnThem.TabIndex = 3;
+            this.btnThem.Text = "thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // Form_QL_Tour
             // 

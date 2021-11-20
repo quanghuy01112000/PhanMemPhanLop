@@ -143,12 +143,7 @@ namespace QL_TourDuLich
         private void txtTimKimTour_TextChanged(object sender, EventArgs e)
         { 
             String textTim = txtTimKimTour.Text.ToLower();
-            var table = from t in TourDuLich.lstTours
-                        where t.MaTour.ToString().Contains(textTim) || t.TenTour.ToLower().Contains(textTim) 
-                        || t.tenLoaiTour.ToLower().Contains(textTim)|| t.TrangThai.ToLower().Contains(textTim)
-                        || t.giaTour.ToString().Contains(textTim)
-                        select t;
-            lstSearch = table.ToList();
+            lstSearch = bus.timKiem(textTim);
             if (txtTimKimTour.Text == "")
             {
                 dgvTour.DataSource = TourDuLich.lstTours;

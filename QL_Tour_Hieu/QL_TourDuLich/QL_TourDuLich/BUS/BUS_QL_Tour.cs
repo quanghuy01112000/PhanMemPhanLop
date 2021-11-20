@@ -54,6 +54,15 @@ namespace QL_TourDuLich.BUS
         {
             return dao.suaChiTietTour(tourDL);
         }
+        public List<TourDuLich> timKiem(String textTim)
+        {
+            var table = from t in TourDuLich.lstTours
+                        where t.MaTour.ToString().Contains(textTim) || t.TenTour.ToLower().Contains(textTim)
+                        || t.tenLoaiTour.ToLower().Contains(textTim) || t.TrangThai.ToLower().Contains(textTim)
+                        || t.giaTour.ToString().Contains(textTim)
+                        select t;
+            return table.ToList();
+        }
         public List<String> getDanhSachTenDiaDiem()
         {
             return dao.getDanhSachTenDiaDiem();
@@ -83,5 +92,6 @@ namespace QL_TourDuLich.BUS
                 return true;
                 return false;
         }
+
     }
 }

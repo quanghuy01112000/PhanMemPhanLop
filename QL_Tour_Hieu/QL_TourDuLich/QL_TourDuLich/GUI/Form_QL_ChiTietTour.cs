@@ -47,12 +47,10 @@ namespace QL_TourDuLich.GUI
         }
         public void markGiaTourHienTai()
         {
-            int index=0;
             foreach (DataGridViewRow row in dgvGiaTour.Rows){
                 if (bus.isGiaTourHienTai(row.Cells[0].Value, row.Cells[1].Value))
-                    index = row.Index;
+                    row.Cells[0].Style.BackColor = Color.Red;
             }
-            dgvGiaTour.Rows[0].DefaultCellStyle.BackColor = Color.Red;
         }
         private void button1_Click(object sender, EventArgs e)
         {
