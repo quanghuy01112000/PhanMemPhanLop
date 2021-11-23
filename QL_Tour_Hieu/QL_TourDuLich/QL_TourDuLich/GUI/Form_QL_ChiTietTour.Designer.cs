@@ -29,7 +29,7 @@ namespace QL_TourDuLich.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDiaDiem = new System.Windows.Forms.DataGridView();
@@ -245,6 +245,7 @@ namespace QL_TourDuLich.GUI
             this.cbbTenDiaDiem.Name = "cbbTenDiaDiem";
             this.cbbTenDiaDiem.Size = new System.Drawing.Size(210, 30);
             this.cbbTenDiaDiem.TabIndex = 10;
+            this.cbbTenDiaDiem.SelectedIndexChanged += new System.EventHandler(this.cbbTenDiaDiem_SelectedIndexChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -481,8 +482,8 @@ namespace QL_TourDuLich.GUI
             this.dgvGiaTour.Location = new System.Drawing.Point(761, 347);
             this.dgvGiaTour.Name = "dgvGiaTour";
             this.dgvGiaTour.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgvGiaTour.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvGiaTour.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGiaTour.RowTemplate.Height = 24;
             this.dgvGiaTour.Size = new System.Drawing.Size(427, 263);
             this.dgvGiaTour.TabIndex = 13;

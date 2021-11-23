@@ -40,16 +40,14 @@ namespace QL_TourDuLich
             dgvTour.AllowUserToOrderColumns = true;
             //load combobox
             cbbLoaiHinh.DataSource = bus.getDSTenLoaiHinh();
-            List<string> lstTrangThai = new List<string>(new string[] { "kết thúc", "đang diễn ra", "đã hủy","chưa đăng ký"});
-            cbbTrangThai.DataSource = lstTrangThai;
+            cbbTrangThai.DataSource = TourDuLich.lstTrangThai;
             //
-            MaTourLonNhat = TourDuLich.lstTours.Last().MaTour;
+            MaTourLonNhat = bus.getMaTourLonNhat();
         }
 
         private void btnChiTietTour_Click(object sender, EventArgs e)
         {
-            TourDuLich tour = new TourDuLich();
-            tour = dgvTour.CurrentRow.DataBoundItem as TourDuLich;
+            TourDuLich tour = dgvTour.CurrentRow.DataBoundItem as TourDuLich;
             Form_QL_ChiTietTour CtTour = new Form_QL_ChiTietTour(tour);
             CtTour.ShowDialog();
         }
@@ -74,7 +72,7 @@ namespace QL_TourDuLich
                 Console.WriteLine(ex);
             }
         }
-        //ok nè
+        
         private void btnSua_Click(object sender, EventArgs e)
         {
             TourDuLich tour = dgvTour.CurrentRow.DataBoundItem as TourDuLich;
@@ -100,11 +98,10 @@ namespace QL_TourDuLich
             tour.HienThi = true;
             //tour.giaTour = 2000;
             tour.TrangThai = cbbTrangThai.Text;
-            TourDuLich.lstTours.Add(tour);
+            //them trong csdl + lstTour
+            bus.themTour(tour);
             dgvTour.DataSource = null;
             dgvTour.DataSource = TourDuLich.lstTours;
-            //update csdl
-            bus.themTour(tour);
         }
 
         private void btnDatLai_Click(object sender, EventArgs e)
@@ -123,12 +120,9 @@ namespace QL_TourDuLich
             {
                 MaTourLonNhat--;
                 TourDuLich tour = dgvTour.CurrentRow.DataBoundItem as TourDuLich;
-                int MaTour = tour.MaTour;
-                //update database
-                bus.xoaTour(MaTour);
+                //xoa trong csdl + lstTour
+                bus.xoaTour(tour);
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
-                //xóa trong datagridview
-                TourDuLich.lstTours.Remove(tour);
                 dgvTour.DataSource = null;
                 dgvTour.DataSource = TourDuLich.lstTours;
 
@@ -163,5 +157,20 @@ namespace QL_TourDuLich
             }
             MessageBox.Show(tam, "Thông báo", MessageBoxButtons.OK);
         }
+        private void txtTenTour_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTenTour.Text.Equals(""))
+            {
+                toolTipNull.Active = true;
+                txtTenTour.BackColor = Color.Red;
+                txtTenTour.ForeColor = Color.White;
+            }
+            else
+            {
+                toolTipNull.Active = false;
+                txtTenTour.BackColor = Color.White;
+                txtTenTour.ForeColor = Color.Black;
+            }
+        }
     }
-    }
+}

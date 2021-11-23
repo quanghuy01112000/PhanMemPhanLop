@@ -110,6 +110,10 @@ namespace QL_TourDuLich.GUI
         {
             
         }
-        
+
+        private void cbbTenDiaDiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

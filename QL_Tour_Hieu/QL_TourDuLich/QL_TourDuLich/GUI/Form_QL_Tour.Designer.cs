@@ -29,6 +29,7 @@ namespace QL_TourDuLich
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cbbTrangThai = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,6 +68,8 @@ namespace QL_TourDuLich
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThem = new System.Windows.Forms.Button();
+            this.toolTipNull = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipGiDo = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -197,6 +200,8 @@ namespace QL_TourDuLich
             this.txtTenTour.Name = "txtTenTour";
             this.txtTenTour.Size = new System.Drawing.Size(225, 28);
             this.txtTenTour.TabIndex = 6;
+            this.toolTipNull.SetToolTip(this.txtTenTour, "Không được bỏ trống");
+            this.txtTenTour.TextChanged += new System.EventHandler(this.txtTenTour_TextChanged);
             // 
             // cbbLoaiHinh
             // 
@@ -518,6 +523,18 @@ namespace QL_TourDuLich
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // toolTipNull
+            // 
+            this.toolTipNull.AutomaticDelay = 100;
+            this.toolTipNull.BackColor = System.Drawing.Color.Lime;
+            this.toolTipNull.ForeColor = System.Drawing.Color.Red;
+            this.toolTipNull.IsBalloon = true;
+            this.toolTipNull.ShowAlways = true;
+            this.toolTipNull.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Error;
+            this.toolTipNull.ToolTipTitle = "cảnh báo";
+            this.toolTipNull.UseAnimation = false;
+            this.toolTipNull.UseFading = false;
+            // 
             // Form_QL_Tour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -586,6 +603,8 @@ namespace QL_TourDuLich
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
+        private System.Windows.Forms.ToolTip toolTipNull;
+        private System.Windows.Forms.ToolTip toolTipGiDo;
     }
 }
 

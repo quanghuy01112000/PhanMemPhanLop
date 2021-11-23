@@ -15,6 +15,7 @@ namespace QL_TourDuLich.BUS
     partial class TourDuLich
     {
         public static List<TourDuLich> lstTours = null;
+        public static List<string> lstTrangThai = new List<string>(new string[] { "kết thúc", "đang diễn ra", "đã hủy", "chưa đăng ký" });
         public string tenLoaiTour { get; set; }
         public double giaTour { get; set; }
         
@@ -26,6 +27,10 @@ namespace QL_TourDuLich.BUS
             lstTours = dao.getDanhSachTour();
             lstTours = lstTours.OrderBy(t => t.MaTour).ToList();
         }
+        public int getMaTourLonNhat()
+        {
+            return TourDuLich.lstTours.Last().MaTour;
+        }
         public List<String> getDSTenLoaiHinh()
         {
             return dao.getDSTenLoaiHinh();
@@ -36,15 +41,18 @@ namespace QL_TourDuLich.BUS
         }
         public Boolean themTour(TourDuLich tourDL)
         {
+            TourDuLich.lstTours.Add(tourDL);
             return dao.themTour(tourDL);
         }
         public int getMaLoaiHinh(String tenLoaiHinh)
         {
             return dao.getMaLoaiHinh(tenLoaiHinh);
         }
-        public Boolean xoaTour(int Ma)
+        public Boolean xoaTour(TourDuLich tourDL)
         {
-            return dao.xoaTour(Ma);
+            //xóa trong lstTour
+            TourDuLich.lstTours.Remove(tourDL);
+            return dao.xoaTour(tourDL.MaTour);
         }
         public bool anTour(int Ma)
         {
@@ -61,7 +69,7 @@ namespace QL_TourDuLich.BUS
                         || t.tenLoaiTour.ToLower().Contains(textTim) || t.TrangThai.ToLower().Contains(textTim)
                         || t.giaTour.ToString().Contains(textTim)
                         select t;
-            return table.ToList();
+            return table.ToList();  
         }
         public List<String> getDanhSachTenDiaDiem()
         {
