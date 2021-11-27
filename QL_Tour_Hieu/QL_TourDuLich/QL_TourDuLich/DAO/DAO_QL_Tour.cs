@@ -17,11 +17,10 @@ namespace QL_TourDuLich.DAO
                 DateTime today = DateTime.Now;
                 var table = from t in db.TourDuLiches//var cho tự ép kiểu
                             join g in db.GiaTours on t.MaTour equals g.MaTour into emty
-                            from gia in emty.DefaultIfEmpty()
+                            from gia in emty.DefaultIfEmpty()//left join google để bít thêm chi tiết 
                             where t.HienThi == true
                             where gia==null || (gia.ThoiGianBatDau <= today && gia.ThoiGianKetThuc >= today)
                             select new {gia = (gia == null) ? 0 : gia.ThanhTien,t.MaTour, t.TenTour, t.LoaiHinhDuLich, t.TrangThai, t.ThamQuans, t.DacDiem,t.NgayBatDau,t.NgayKetThuc};
-
                 foreach (var i in table)
                 {
                     TourDuLich tour = new TourDuLich();
@@ -44,6 +43,47 @@ namespace QL_TourDuLich.DAO
                         dd.TenDiaDiem = j.TenDiaDiem;
                         dd.ThuTu = j.ThuTu;
                         tour.dsDiaDiem.Add(dd);
+                    }
+                    dsTour.Add(tour);
+                }
+                return dsTour;
+            }
+
+        }
+        public List<TourDuLich> getDanhSachTourKhongJoin()
+        {
+            List<TourDuLich> dsTour = new List<TourDuLich>();
+            using (TourDLEntities db = new TourDLEntities())
+            {
+                DateTime today = DateTime.Now;
+                var table = from t in db.TourDuLiches
+                            where t.HienThi == true
+                            select t;
+                foreach (var i in table)
+                {
+                    TourDuLich tour = new TourDuLich();
+                    tour.MaTour = i.MaTour;
+                    tour.TenTour = i.TenTour;
+                    tour.tenLoaiTour = i.LoaiHinhDuLich.TenLoaiHinh;
+                    if (i.GiaTours.Count>0)
+                    tour.giaTour = (double)i.GiaTours.Where(g=> g.ThoiGianBatDau <= today
+                                                            && g.ThoiGianKetThuc > today)
+                                    .Select(t => t.ThanhTien).First();
+                    tour.TrangThai = i.TrangThai;
+                    tour.DacDiem = i.DacDiem;
+                    tour.NgayBatDau = i.NgayBatDau;
+                    tour.NgayKetThuc = i.NgayKetThuc;
+                    if (i.ThamQuans.Count > 0)
+                    {
+                        var tbThamQuan = from d in i.ThamQuans
+                                         select d;
+                        foreach (var j in tbThamQuan)
+                        {
+                            var dd = new ThongTinDiaDiem();
+                            dd.TenDiaDiem = j.DiaDiem.TenDiaDiem;
+                            dd.ThuTu = j.ThuTu;
+                            tour.dsDiaDiem.Add(dd);
+                        }
                     }
                     dsTour.Add(tour);
                 }

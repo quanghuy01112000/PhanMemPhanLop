@@ -24,7 +24,8 @@ namespace QL_TourDuLich.BUS
         DAO_QL_LoaiHinh dd = new DAO_QL_LoaiHinh();
         public void getDanhsachTour()
         {
-            lstTours = dao.getDanhSachTour();
+            //lstTours = dao.getDanhSachTour();
+            lstTours = dao.getDanhSachTourKhongJoin();
             lstTours = lstTours.OrderBy(t => t.MaTour).ToList();
         }
         public int getMaTourLonNhat()
@@ -91,12 +92,10 @@ namespace QL_TourDuLich.BUS
         {
             return dao.getGiabyMaTour(Ma);
         }
-        public bool isGiaTourHienTai(Object BatDau,Object KetThuc)
+        public bool isGiaTourHienTai(DateTime BatDau,DateTime KetThuc)
         {
             DateTime today = DateTime.Now;
-            DateTime ThoiGianBatDau = (DateTime)BatDau;
-            DateTime ThoiGianKetThuc = (DateTime)KetThuc;
-            if (ThoiGianBatDau <= today && ThoiGianKetThuc >= today)
+            if (BatDau <= today && KetThuc >= today)
                 return true;
                 return false;
         }

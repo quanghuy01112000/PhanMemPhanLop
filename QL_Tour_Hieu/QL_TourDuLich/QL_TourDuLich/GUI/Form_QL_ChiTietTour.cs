@@ -19,7 +19,7 @@ namespace QL_TourDuLich.GUI
         public Form_QL_ChiTietTour(TourDuLich tour)
         {
             InitializeComponent();
-            tourDL = tour;
+            tourDL = tour;//hứng tour lại để sửa 
             txtMaTour.Text = tour.MaTour.ToString();
             txtTenTour.Text = tour.TenTour;
             txtTenLoaiHinh.Text = tour.tenLoaiTour;
@@ -48,7 +48,9 @@ namespace QL_TourDuLich.GUI
         {
             foreach (DataGridViewRow row in dgvGiaTour.Rows)
             {
-                if (bus.isGiaTourHienTai(row.Cells[0].Value, row.Cells[1].Value))
+                DateTime ngayBatDau = (DateTime) row.Cells[0].Value;
+                DateTime ngayKetThuc = (DateTime)row.Cells[1].Value;
+                if (bus.isGiaTourHienTai(ngayBatDau, ngayKetThuc))
                     row.DefaultCellStyle.ForeColor = Color.Red;
             }
         }
