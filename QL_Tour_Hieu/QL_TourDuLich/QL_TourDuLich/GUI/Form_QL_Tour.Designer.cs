@@ -111,20 +111,20 @@ namespace QL_TourDuLich
             // 
             this.cbbTrangThai.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbbTrangThai.FormattingEnabled = true;
-            this.cbbTrangThai.Location = new System.Drawing.Point(114, 301);
+            this.cbbTrangThai.Location = new System.Drawing.Point(114, 302);
             this.cbbTrangThai.Margin = new System.Windows.Forms.Padding(4);
             this.cbbTrangThai.Name = "cbbTrangThai";
-            this.cbbTrangThai.Size = new System.Drawing.Size(168, 34);
+            this.cbbTrangThai.Size = new System.Drawing.Size(168, 30);
             this.cbbTrangThai.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 22);
+            this.label1.Location = new System.Drawing.Point(25, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 26);
+            this.label1.Size = new System.Drawing.Size(81, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã Tour";
             // 
@@ -132,10 +132,10 @@ namespace QL_TourDuLich
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 92);
+            this.label2.Location = new System.Drawing.Point(17, 93);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 26);
+            this.label2.Size = new System.Drawing.Size(89, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên Tour";
             // 
@@ -143,10 +143,10 @@ namespace QL_TourDuLich
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 162);
+            this.label3.Location = new System.Drawing.Point(19, 163);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 26);
+            this.label3.Size = new System.Drawing.Size(87, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "Loại hình";
             // 
@@ -154,10 +154,10 @@ namespace QL_TourDuLich
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 219);
+            this.label4.Location = new System.Drawing.Point(6, 233);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 52);
+            this.label4.Size = new System.Drawing.Size(100, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "Thành tiền";
             // 
@@ -165,20 +165,20 @@ namespace QL_TourDuLich
             // 
             this.txtThanhTien.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtThanhTien.Enabled = false;
-            this.txtThanhTien.Location = new System.Drawing.Point(114, 229);
+            this.txtThanhTien.Location = new System.Drawing.Point(114, 231);
             this.txtThanhTien.Margin = new System.Windows.Forms.Padding(4);
             this.txtThanhTien.Name = "txtThanhTien";
-            this.txtThanhTien.Size = new System.Drawing.Size(168, 32);
+            this.txtThanhTien.Size = new System.Drawing.Size(168, 28);
             this.txtThanhTien.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 289);
+            this.label5.Location = new System.Drawing.Point(4, 303);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 52);
+            this.label5.Size = new System.Drawing.Size(102, 24);
             this.label5.TabIndex = 4;
             this.label5.Text = "Trạng Thái";
             // 
@@ -186,19 +186,19 @@ namespace QL_TourDuLich
             // 
             this.txtMaTour.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtMaTour.Enabled = false;
-            this.txtMaTour.Location = new System.Drawing.Point(114, 19);
+            this.txtMaTour.Location = new System.Drawing.Point(114, 21);
             this.txtMaTour.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaTour.Name = "txtMaTour";
-            this.txtMaTour.Size = new System.Drawing.Size(168, 32);
+            this.txtMaTour.Size = new System.Drawing.Size(168, 28);
             this.txtMaTour.TabIndex = 5;
             // 
             // txtTenTour
             // 
             this.txtTenTour.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtTenTour.Location = new System.Drawing.Point(114, 89);
+            this.txtTenTour.Location = new System.Drawing.Point(114, 91);
             this.txtTenTour.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenTour.Name = "txtTenTour";
-            this.txtTenTour.Size = new System.Drawing.Size(225, 32);
+            this.txtTenTour.Size = new System.Drawing.Size(225, 28);
             this.txtTenTour.TabIndex = 6;
             this.toolTipNull.SetToolTip(this.txtTenTour, "Không được bỏ trống");
             this.txtTenTour.TextChanged += new System.EventHandler(this.txtTenTour_TextChanged);
@@ -207,10 +207,10 @@ namespace QL_TourDuLich
             // 
             this.cbbLoaiHinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbbLoaiHinh.FormattingEnabled = true;
-            this.cbbLoaiHinh.Location = new System.Drawing.Point(114, 161);
+            this.cbbLoaiHinh.Location = new System.Drawing.Point(114, 162);
             this.cbbLoaiHinh.Margin = new System.Windows.Forms.Padding(4);
             this.cbbLoaiHinh.Name = "cbbLoaiHinh";
-            this.cbbLoaiHinh.Size = new System.Drawing.Size(197, 34);
+            this.cbbLoaiHinh.Size = new System.Drawing.Size(197, 30);
             this.cbbLoaiHinh.TabIndex = 9;
             // 
             // panel1
@@ -279,17 +279,17 @@ namespace QL_TourDuLich
             this.dateTimePicker2.Location = new System.Drawing.Point(562, 44);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(271, 32);
+            this.dateTimePicker2.Size = new System.Drawing.Size(271, 28);
             this.dateTimePicker2.TabIndex = 7;
             // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(4, 14);
+            this.label8.Location = new System.Drawing.Point(4, 16);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 26);
+            this.label8.Size = new System.Drawing.Size(90, 24);
             this.label8.TabIndex = 0;
             this.label8.Text = "Loại Tour";
             // 
@@ -297,10 +297,10 @@ namespace QL_TourDuLich
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(283, 14);
+            this.label9.Location = new System.Drawing.Point(283, 16);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(141, 26);
+            this.label9.Size = new System.Drawing.Size(122, 24);
             this.label9.TabIndex = 1;
             this.label9.Text = "Ngày bắt đầu";
             // 
@@ -308,10 +308,10 @@ namespace QL_TourDuLich
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(562, 14);
+            this.label10.Location = new System.Drawing.Point(562, 16);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(145, 26);
+            this.label10.Size = new System.Drawing.Size(124, 24);
             this.label10.TabIndex = 2;
             this.label10.Text = "Ngày kết thúc";
             // 
@@ -319,10 +319,10 @@ namespace QL_TourDuLich
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(841, 14);
+            this.label11.Location = new System.Drawing.Point(841, 16);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(108, 26);
+            this.label11.Size = new System.Drawing.Size(94, 24);
             this.label11.TabIndex = 3;
             this.label11.Text = "Trạng thái";
             // 
@@ -332,7 +332,7 @@ namespace QL_TourDuLich
             this.cbLocLoaiTour.Location = new System.Drawing.Point(4, 44);
             this.cbLocLoaiTour.Margin = new System.Windows.Forms.Padding(4);
             this.cbLocLoaiTour.Name = "cbLocLoaiTour";
-            this.cbLocLoaiTour.Size = new System.Drawing.Size(271, 34);
+            this.cbLocLoaiTour.Size = new System.Drawing.Size(271, 30);
             this.cbLocLoaiTour.TabIndex = 4;
             // 
             // cbLocTrangThai
@@ -341,7 +341,7 @@ namespace QL_TourDuLich
             this.cbLocTrangThai.Location = new System.Drawing.Point(841, 44);
             this.cbLocTrangThai.Margin = new System.Windows.Forms.Padding(4);
             this.cbLocTrangThai.Name = "cbLocTrangThai";
-            this.cbLocTrangThai.Size = new System.Drawing.Size(271, 34);
+            this.cbLocTrangThai.Size = new System.Drawing.Size(271, 30);
             this.cbLocTrangThai.TabIndex = 5;
             // 
             // dateTimePicker1
@@ -351,7 +351,7 @@ namespace QL_TourDuLich
             this.dateTimePicker1.Location = new System.Drawing.Point(283, 44);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(271, 32);
+            this.dateTimePicker1.Size = new System.Drawing.Size(271, 28);
             this.dateTimePicker1.TabIndex = 6;
             // 
             // btnSua
@@ -403,7 +403,7 @@ namespace QL_TourDuLich
             this.txtTimKimTour.Location = new System.Drawing.Point(310, 43);
             this.txtTimKimTour.Margin = new System.Windows.Forms.Padding(4);
             this.txtTimKimTour.Name = "txtTimKimTour";
-            this.txtTimKimTour.Size = new System.Drawing.Size(379, 32);
+            this.txtTimKimTour.Size = new System.Drawing.Size(379, 28);
             this.txtTimKimTour.TabIndex = 9;
             this.txtTimKimTour.TextChanged += new System.EventHandler(this.txtTimKimTour_TextChanged);
             // 
@@ -414,7 +414,7 @@ namespace QL_TourDuLich
             this.label7.Location = new System.Drawing.Point(230, 48);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 25);
+            this.label7.Size = new System.Drawing.Size(72, 20);
             this.label7.TabIndex = 8;
             this.label7.Text = "tìm kiếm";
             // 
@@ -447,7 +447,7 @@ namespace QL_TourDuLich
             this.label6.Location = new System.Drawing.Point(10, 14);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(175, 29);
+            this.label6.Size = new System.Drawing.Size(145, 24);
             this.label6.TabIndex = 5;
             this.label6.Text = "Danh sách tour";
             // 
@@ -537,7 +537,7 @@ namespace QL_TourDuLich
             // 
             // Form_QL_Tour
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;

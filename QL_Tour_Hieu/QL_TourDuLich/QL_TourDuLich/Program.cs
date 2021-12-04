@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QL_TourDuLich.GUI;
 
 namespace QL_TourDuLich
 {
@@ -17,7 +16,7 @@ namespace QL_TourDuLich
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_QL_Khac());
+            Application.Run(new Form_QL_Tour());
         }
     }
 }
