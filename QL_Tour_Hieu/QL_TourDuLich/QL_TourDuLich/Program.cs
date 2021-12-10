@@ -17,9 +17,10 @@ namespace QL_TourDuLich
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_QL_Tour());
+            //Application.Run(new Form_QL_Tour());
             //Application.Run(new Form_QL_Khac());
             //Application.Run(new Form_QL_KhachHang());
+            Application.Run(new Form_QL_GiaTour());
         }
     }
 }
