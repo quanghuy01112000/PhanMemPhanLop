@@ -45,10 +45,10 @@ namespace QL_TourDuLich.BUS
         public List<KhachHang> timKiemKhachHang(String textTim)
         {
             var table = from t in listKhachHang
-                        where t.MaKhachHang.ToString().Contains(textTim) || t.HoTen.ToString().Contains(textTim)
-                        || t.DiaChi.ToString().Contains(textTim) || t.GioiTinh.ToString().Contains(textTim)
+                        where t.MaKhachHang.ToString().Contains(textTim) || t.HoTen.ToLower().Contains(textTim)
+                        || t.DiaChi.ToLower().Contains(textTim) || t.GioiTinh.ToLower().Contains(textTim)
                         || t.soCMND.ToString().Contains(textTim) || t.SDT.ToString().Contains(textTim)
-                        || t.QuocTich.ToString().Contains(textTim)
+                        || t.QuocTich.ToLower().Contains(textTim)
                         select t;
             return table.ToList();
         }

@@ -34,7 +34,6 @@ namespace QL_TourDuLich.GUI
             this.btnXoa = new System.Windows.Forms.Button();
             this.txtTimKiemKhachHang = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnXemChiTiet = new System.Windows.Forms.Button();
             this.btnDatLai = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvKH = new System.Windows.Forms.DataGridView();
@@ -78,7 +77,6 @@ namespace QL_TourDuLich.GUI
             this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.txtTimKiemKhachHang);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.btnXemChiTiet);
             this.panel2.Controls.Add(this.btnDatLai);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.dgvKH);
@@ -122,16 +120,6 @@ namespace QL_TourDuLich.GUI
             this.label7.Size = new System.Drawing.Size(83, 25);
             this.label7.TabIndex = 8;
             this.label7.Text = "tìm kiếm";
-            // 
-            // btnXemChiTiet
-            // 
-            this.btnXemChiTiet.Location = new System.Drawing.Point(893, 39);
-            this.btnXemChiTiet.Margin = new System.Windows.Forms.Padding(4);
-            this.btnXemChiTiet.Name = "btnXemChiTiet";
-            this.btnXemChiTiet.Size = new System.Drawing.Size(154, 44);
-            this.btnXemChiTiet.TabIndex = 7;
-            this.btnXemChiTiet.Text = "xem chi tiết";
-            this.btnXemChiTiet.UseVisualStyleBackColor = true;
             // 
             // btnDatLai
             // 
@@ -485,7 +473,6 @@ namespace QL_TourDuLich.GUI
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.TextBox txtTimKiemKhachHang;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnXemChiTiet;
         private System.Windows.Forms.Button btnDatLai;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvKH;

@@ -69,7 +69,15 @@ namespace QL_TourDuLich.GUI
         private void txtTimKiemKhachHang_TextChanged(object sender, EventArgs e)
         {
             String textSearch = txtTimKiemKhachHang.Text.ToLower();
-
+            listSearchKhachHang = busKhachHang.timKiemKhachHang(textSearch);
+            if(txtTimKiemKhachHang.Text == "")
+            {
+                dgvKH.DataSource = BUS_QL_KhachHang.listKhachHang;
+            }
+            else
+            {
+                dgvKH.DataSource = listSearchKhachHang;
+            }
         }
 
         private void btnDatLai_Click(object sender, EventArgs e)
