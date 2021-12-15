@@ -16,6 +16,7 @@ namespace QL_TourDuLich.GUI
         TourDuLich tourDL;
         TourDuLich bus = new TourDuLich();
         int countDiaDiem=0;
+        List<String> LstDiaDiem;
         public Form_QL_ChiTietTour(TourDuLich tour)
         {
             InitializeComponent();
@@ -33,7 +34,14 @@ namespace QL_TourDuLich.GUI
             dgvDiaDiem.DataSource=tour.dsDiaDiem.ToList();
             dgvDiaDiem.Columns["TenDiaDiem"].DataPropertyName = "TenDiaDiem";
             dgvDiaDiem.Columns["ThuTu"].DataPropertyName = "ThuTu";
-            cbbTenDiaDiem.DataSource = bus.getDanhSachTenDiaDiem();
+            LstDiaDiem = bus.getDanhSachTenDiaDiem();
+            //bỏ những tên địa điểm ở combobox đã có trong bảng
+            foreach (var i in tour.dsDiaDiem)
+            {
+                if (LstDiaDiem.Contains(i.TenDiaDiem))
+                    LstDiaDiem.Remove(i.TenDiaDiem);
+            }
+            cbbTenDiaDiem.DataSource = LstDiaDiem;
             countDiaDiem = tourDL.dsDiaDiem.Count();
 
             dgvGiaTour.AutoGenerateColumns = false;
@@ -43,6 +51,15 @@ namespace QL_TourDuLich.GUI
             dgvGiaTour.Columns["NgayKetThucGia"].DataPropertyName = "ThoiGianKetThuc";
             dgvGiaTour.Columns[1].DefaultCellStyle.Format = "dd-MM-yyyy";
             dgvGiaTour.Columns["GiaTien"].DataPropertyName = "ThanhTien";
+
+            dgvDoan.AutoGenerateColumns = false;
+            dgvDoan.DataSource = tour.dsDoanTour;
+            dgvDoan.Columns["NgayBatDau"].DataPropertyName = "ngayBd";
+            dgvDoan.Columns[2].DefaultCellStyle.Format = "dd-MM-yyyy";
+            dgvDoan.Columns["NgayKetThuc"].DataPropertyName = "ngayKt";
+            dgvDoan.Columns[3].DefaultCellStyle.Format = "dd-MM-yyyy";
+            dgvDoan.Columns["MaDoan"].DataPropertyName = "maDoan";
+            dgvDoan.Columns["TenDoan"].DataPropertyName = "tenDoan";
         }
         private void dgvGiaTour_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -85,10 +102,15 @@ namespace QL_TourDuLich.GUI
             tourDL.dsDiaDiem.Add(tt);
             dgvDiaDiem.DataSource = null;
             dgvDiaDiem.DataSource = tourDL.dsDiaDiem.ToList();
+            //xóa tên địa điểm đã add khỏi combobox
+            LstDiaDiem.Remove(tt.TenDiaDiem);
+            cbbTenDiaDiem.DataSource = null;
+            cbbTenDiaDiem.DataSource = LstDiaDiem;
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int Ma = bus.getMaDiaDiem(tourDL.dsDiaDiem.Last().TenDiaDiem);
+            String ten = tourDL.dsDiaDiem.Last().TenDiaDiem;
+            int Ma = bus.getMaDiaDiem(ten);
             tourDL.dsDiaDiem.RemoveAt(countDiaDiem-1);
             //update csdl
             bus.xoaDiaDiem(tourDL.MaTour,Ma,countDiaDiem);
@@ -96,6 +118,10 @@ namespace QL_TourDuLich.GUI
             //sua form
             dgvDiaDiem.DataSource = null;
             dgvDiaDiem.DataSource = tourDL.dsDiaDiem.ToList();
+            //thêm tên địa điểm đã xóa vào combobox
+            LstDiaDiem.Add(ten);
+            cbbTenDiaDiem.DataSource = null;
+            cbbTenDiaDiem.DataSource = LstDiaDiem;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -110,7 +136,8 @@ namespace QL_TourDuLich.GUI
 
         private void btnThemGia_Click(object sender, EventArgs e)
         {
-            
+            //new Form giá tour
+            //xong truyền mã tour qua để tìm kiếm và chỉnh sửa 
         }
 
         private void cbbTenDiaDiem_SelectedIndexChanged(object sender, EventArgs e)

@@ -12,6 +12,14 @@ namespace QL_TourDuLich.BUS
         public string TenDiaDiem { get; set; }
         public int ThuTu { get; set; }
     }
+
+    public class ThongTinDoanTour
+    {
+        public int maDoan { get; set; }
+        public String tenDoan { get; set; }
+        public DateTime ngayBd { get; set; }
+        public DateTime ngayKt { get; set; }
+    }
     partial class TourDuLich
     {
         public static List<TourDuLich> lstTours = null;
@@ -20,6 +28,7 @@ namespace QL_TourDuLich.BUS
         public double giaTour { get; set; }
         
         public List<ThongTinDiaDiem> dsDiaDiem = new List<ThongTinDiaDiem>();
+        public List<ThongTinDoanTour> dsDoanTour = new List<ThongTinDoanTour>();
         DAO_QL_Tour dao = new DAO_QL_Tour();
         DAO_QL_LoaiHinh dd = new DAO_QL_LoaiHinh();
         public void getDanhsachTour()

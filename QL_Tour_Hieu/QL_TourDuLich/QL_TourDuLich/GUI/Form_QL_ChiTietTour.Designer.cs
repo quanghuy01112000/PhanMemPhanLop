@@ -70,7 +70,6 @@ namespace QL_TourDuLich.GUI
             this.NgayKetThucGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThemGia = new System.Windows.Forms.Button();
-            this.btnXoaGia = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiaDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoan)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -513,25 +512,14 @@ namespace QL_TourDuLich.GUI
             // btnThemGia
             // 
             this.btnThemGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemGia.Location = new System.Drawing.Point(1058, 314);
+            this.btnThemGia.Location = new System.Drawing.Point(1073, 317);
             this.btnThemGia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnThemGia.Name = "btnThemGia";
-            this.btnThemGia.Size = new System.Drawing.Size(61, 29);
+            this.btnThemGia.Size = new System.Drawing.Size(113, 29);
             this.btnThemGia.TabIndex = 14;
-            this.btnThemGia.Text = "thêm";
+            this.btnThemGia.Text = "Chỉnh sửa";
             this.btnThemGia.UseVisualStyleBackColor = true;
             this.btnThemGia.Click += new System.EventHandler(this.btnThemGia_Click);
-            // 
-            // btnXoaGia
-            // 
-            this.btnXoaGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaGia.Location = new System.Drawing.Point(1125, 314);
-            this.btnXoaGia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnXoaGia.Name = "btnXoaGia";
-            this.btnXoaGia.Size = new System.Drawing.Size(61, 29);
-            this.btnXoaGia.TabIndex = 15;
-            this.btnXoaGia.Text = "xóa";
-            this.btnXoaGia.UseVisualStyleBackColor = true;
             // 
             // Form_QL_ChiTietTour
             // 
@@ -539,7 +527,6 @@ namespace QL_TourDuLich.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1198, 688);
-            this.Controls.Add(this.btnXoaGia);
             this.Controls.Add(this.btnThemGia);
             this.Controls.Add(this.dgvGiaTour);
             this.Controls.Add(this.label12);
@@ -608,7 +595,6 @@ namespace QL_TourDuLich.GUI
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dgvGiaTour;
         private System.Windows.Forms.Button btnThemGia;
-        private System.Windows.Forms.Button btnXoaGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayBatDauGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKetThucGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaTien;
