@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL_Tour_MVC", "QL_Tour_MVC\QL_Tour_MVC.csproj", "{047E9A23-B5E7-4C3F-8F88-5F20750B6A05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL_TourDuLich", "..\QL_TourDuLich\QL_TourDuLich\QL_TourDuLich.csproj", "{42A8CCCB-8551-4A54-BA08-CAD29426A250}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{047E9A23-B5E7-4C3F-8F88-5F20750B6A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{047E9A23-B5E7-4C3F-8F88-5F20750B6A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{047E9A23-B5E7-4C3F-8F88-5F20750B6A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{047E9A23-B5E7-4C3F-8F88-5F20750B6A05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42A8CCCB-8551-4A54-BA08-CAD29426A250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42A8CCCB-8551-4A54-BA08-CAD29426A250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42A8CCCB-8551-4A54-BA08-CAD29426A250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42A8CCCB-8551-4A54-BA08-CAD29426A250}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17601F68-72A6-47E8-8628-5E2E61108DFF}
+	EndGlobalSection
+EndGlobal
