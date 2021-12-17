@@ -1,0 +1,45 @@
+﻿@model IEnumerable<QL_TourDuLich.BUS.ChiPhi>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SoTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoanDuLich.MaDoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiChiPhi.TenLoaiChiPhi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoanDuLich.MaDoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiChiPhi.TenLoaiChiPhi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaChiPhi }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaChiPhi }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaChiPhi })
+        </td>
+    </tr>
+}
+
+</table>

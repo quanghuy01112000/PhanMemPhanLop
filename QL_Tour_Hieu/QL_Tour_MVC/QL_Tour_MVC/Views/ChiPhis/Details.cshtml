@@ -1,0 +1,42 @@
+﻿@model QL_TourDuLich.BUS.ChiPhi
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ChiPhi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoanDuLich.MaDoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoanDuLich.MaDoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiChiPhi.TenLoaiChiPhi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiChiPhi.TenLoaiChiPhi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaChiPhi }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

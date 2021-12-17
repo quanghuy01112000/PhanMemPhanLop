@@ -138,6 +138,8 @@ namespace QL_TourDuLich.GUI
         {
             //new Form giá tour
             //xong truyền mã tour qua để tìm kiếm và chỉnh sửa 
+            Form_QL_GiaTour GTour = new Form_QL_GiaTour();
+            GTour.ShowDialog();
         }
 
         private void cbbTenDiaDiem_SelectedIndexChanged(object sender, EventArgs e)

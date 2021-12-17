@@ -1,9 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\GUI_QuanLyTourDuLich",
-    "\\GUI_QuanLyTourDuLich\\DAO"
+    "\\QL_Tour_Hieu",
+    "\\QL_Tour_Hieu\\QL_TourDuLich",
+    "\\QL_Tour_Hieu\\QL_TourDuLich\\QL_TourDuLich",
+    "\\QL_Tour_Hieu\\QL_TourDuLich\\QL_TourDuLich\\GUI",
+    "\\QL_Tour_Hieu\\QL_Tour_MVC"
   ],
-  "SelectedNode": "\\GUI_QuanLyTourDuLich\\DAO\\DBConnect.cs",
+  "SelectedNode": "\\QL_Tour_Hieu\\QL_TourDuLich\\QL_TourDuLich\\GUI\\Form_QL_GiaTour.cs",
   "PreviewInSolutionExplorer": false
 }
