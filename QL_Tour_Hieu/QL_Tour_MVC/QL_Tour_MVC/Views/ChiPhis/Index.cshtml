@@ -11,18 +11,18 @@
     <input type="submit" value="Tìm" />
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm mới", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SoTien)
+            Số Tiền
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.DoanDuLich.MaDoan)
+            Mã Đoàn
         </th>*@ 
         <th>
-            @Html.DisplayNameFor(model => model.LoaiChiPhi.TenLoaiChiPhi)
+            Tên Loại Chi Phí
         </th>
         <th></th>
     </tr>
@@ -40,9 +40,9 @@
                 @Html.DisplayFor(modelItem => item.LoaiChiPhi.TenLoaiChiPhi)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaChiPhi }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaChiPhi }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaChiPhi })
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaChiPhi }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaChiPhi }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.MaChiPhi })
             </td>
         </tr>
     }

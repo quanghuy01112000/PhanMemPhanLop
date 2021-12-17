@@ -11,28 +11,28 @@
     <input type="submit" value="Tìm" />
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm mới", "Create")
 </p>
 <table class="table ">
     <thead class="thead-dark">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.HoTen)
+                Họ Tên
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.soCMND)
+                Số CMND
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DiaChi)
+                Địa Chỉ
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GioiTinh)
+                Giới Tính
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SDT)
+                SDT
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.QuocTich)
+                Quốc Tịch
             </th>
             <th></th>
         </tr>
@@ -60,9 +60,9 @@
                 @Html.DisplayFor(modelItem => item.QuocTich)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaKhachHang }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaKhachHang }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaKhachHang })
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaKhachHang }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaKhachHang }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.MaKhachHang })
             </td>
         </tr>
 

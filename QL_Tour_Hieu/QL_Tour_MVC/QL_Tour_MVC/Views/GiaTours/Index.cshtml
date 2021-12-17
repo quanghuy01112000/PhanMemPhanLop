@@ -11,21 +11,21 @@
     <input type="submit" value="Tìm" />
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm mới", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ThanhTien)
+            Thành Tiền
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ThoiGianBatDau)
+            Thời Gian Bắt Đầu
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ThoiGianKetThuc)
+            Thời Gian Kết Thúc
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TourDuLich.TenTour)
+            Tên Tour
         </th>
         <th></th>
     </tr>
@@ -46,9 +46,9 @@
                 @Html.DisplayFor(modelItem => item.TourDuLich.TenTour)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaGia }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaGia }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaGia })
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaGia }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaGia }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.MaGia })
             </td>
         </tr>
     }

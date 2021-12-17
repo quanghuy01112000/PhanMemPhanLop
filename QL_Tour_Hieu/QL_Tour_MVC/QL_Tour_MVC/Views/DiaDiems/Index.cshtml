@@ -12,12 +12,12 @@
     <input type="submit" value="Tìm" />
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm mới", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.TenDiaDiem)
+            Tên Địa Điểm
         </th>
         <th></th>
     </tr>
@@ -29,9 +29,9 @@
                 @Html.DisplayFor(modelItem => item.TenDiaDiem)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaDiaDiem }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaDiaDiem }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaDiaDiem })
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaDiaDiem }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaDiaDiem }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.MaDiaDiem })
             </td>
         </tr>
     }

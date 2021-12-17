@@ -5,37 +5,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Tour</h2>
 @using (Html.BeginForm("Index", "TourDuLiches", FormMethod.Get))
 {
     @Html.TextBox("q")
     <input type="submit" value="Tìm" />
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm mới", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MaTour)
+            Mã Tour
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TenTour)
+            Tên Tour
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TrangThai)
+            Trạng Thái
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NgayBatDau)
+            Ngày Bắt Đầu
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NgayKetThuc)
+            Ngày Kết Thúc
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.giaTour)
+            Giá Tour
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tenLoaiTour)
+            Tên Loại Tour
         </th>
         <th></th>
     </tr>
@@ -64,9 +64,9 @@
             @Html.DisplayFor(modelItem => item.tenLoaiTour)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaTour }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaTour }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaTour })
+            @Html.ActionLink("Sửa", "Edit", new { id=item.MaTour }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.MaTour }) |
+            @Html.ActionLink("Xoá", "Delete", new { id=item.MaTour })
         </td>
     </tr>
 }
