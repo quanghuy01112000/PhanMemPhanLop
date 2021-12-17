@@ -10,6 +10,7 @@ namespace QL_TourDuLich.BUS
     class BUS_QL_GiaTour
     {
         public static List<GiaTour> listGiaTour = null;
+        public static List<TourDuLich> listTour = null;
         DAO_QL_GiaTour daoGiaTour = new DAO_QL_GiaTour();
         public void getDSGiaTour()
         {
@@ -49,6 +50,11 @@ namespace QL_TourDuLich.BUS
                         || t.ThoiGianKetThuc.ToString().Contains(textTim)
                         select t;
             return table.ToList();
+        }
+
+        public List<TourDuLich> GetTours()
+        {
+            return daoGiaTour.getDSTenTour();
         }
     }
 }

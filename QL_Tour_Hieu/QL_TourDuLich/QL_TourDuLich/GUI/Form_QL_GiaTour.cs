@@ -18,6 +18,8 @@ namespace QL_TourDuLich.GUI
         DAO_QL_GiaTour daoGiaTour = new DAO_QL_GiaTour();
         BUS_QL_GiaTour busGiaTour = new BUS_QL_GiaTour();
         List<GiaTour> listSearchGiaTour = new List<GiaTour>();
+    
+        List<TourDuLich> listTour = new List<TourDuLich>();
         int SelectedIndex = 0;
         static int maGiaTourMax = 0;
 
@@ -34,25 +36,31 @@ namespace QL_TourDuLich.GUI
             busGiaTour.getDSGiaTour();
             dgvGiaTour.DataSource = BUS_QL_GiaTour.listGiaTour;//bus.getDanhsachTour();
             dgvGiaTour.Columns["MaGia"].DataPropertyName = "MaGia";
-            dgvGiaTour.Columns["MaTour"].DataPropertyName = "MaTour";
+            dgvGiaTour.Columns["MaTour"].DataPropertyName = "Tour";
             dgvGiaTour.Columns["ThanhTien"].DataPropertyName = "ThanhTien";
             dgvGiaTour.Columns["NgayBatDau"].DataPropertyName = "ThoiGianBatDau";
             dgvGiaTour.Columns["NgayKetThuc"].DataPropertyName = "ThoiGianKetThuc";
             dgvGiaTour.AllowUserToOrderColumns = true;
             //load combobox
-
+            
+            foreach(var i in busGiaTour.GetTours())
+            {
+                comboBoxMaTour.Items.Add(i.MaTour);
+            }
+            
             //
             maGiaTourMax = busGiaTour.getMaGiaTourMax();
         }
         private void dgvGiaTour_SelectionChanged(object sender, EventArgs e)
         {
             SelectedIndex = dgvGiaTour.CurrentCell.RowIndex;
+            //comboBoxMaTour.Text = SelectedIndex.ToString();
             GiaTour tmp = null;
             try
             {
                 tmp = dgvGiaTour.CurrentRow.DataBoundItem as GiaTour;
                 txtMaGia.Text = tmp.MaGia.ToString();
-                txtMaTour.Text = tmp.MaTour.ToString();
+                comboBoxMaTour.Text = tmp.MaTour.ToString();
                 txtThanhTien.Text = tmp.ThanhTien.ToString();
                 dateTimePickerStart.Text = tmp.ThoiGianBatDau.ToString();
                 dateTimePickerEnd.Text = tmp.ThoiGianKetThuc.ToString();
@@ -65,38 +73,43 @@ namespace QL_TourDuLich.GUI
         private void btnDatLai_Click(object sender, EventArgs e)
         {
             txtMaGia.Text = "";
-            txtMaTour.Text = "";
+            comboBoxMaTour.Text = "";
             txtThanhTien.Text = "";
-            dateTimePickerStart.Text = "";
-            dateTimePickerEnd.Text = "";
+            DateTime nowdate = DateTime.Now;
+            dateTimePickerStart.Value = nowdate;
+            dateTimePickerEnd.Value = nowdate;
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
+
             maGiaTourMax = busGiaTour.getMaGiaTourMax();
             GiaTour giaTour = new GiaTour();
             maGiaTourMax++;
             giaTour.MaGia = maGiaTourMax;
-            giaTour.MaTour = 1;
+            giaTour.MaTour = Int32.Parse(comboBoxMaTour.Text);
+            
+
             double tien = double.Parse(txtThanhTien.Text);
             giaTour.ThanhTien = tien;
-            DateTime start = DateTime.Now;
-            giaTour.ThoiGianBatDau = start;
-            DateTime end = DateTime.Now;
-            giaTour.ThoiGianKetThuc = end;
+
+            giaTour.ThoiGianBatDau = dateTimePickerStart.Value;
+            
+            giaTour.ThoiGianKetThuc = dateTimePickerEnd.Value;
             busGiaTour.themGiaTour(giaTour);
             dgvGiaTour.DataSource = null;
             dgvGiaTour.DataSource = BUS_QL_GiaTour.listGiaTour;
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
+
             GiaTour giaTour = dgvGiaTour.CurrentRow.DataBoundItem as GiaTour;
-            giaTour.MaTour = 1;
+            giaTour.MaTour = Int32.Parse(comboBoxMaTour.Text);
             double tien = double.Parse(txtThanhTien.Text);
             giaTour.ThanhTien = tien;
-            DateTime start = DateTime.Now;
-            giaTour.ThoiGianBatDau = start;
-            DateTime end = DateTime.Now;
-            giaTour.ThoiGianKetThuc = end;
+            
+            giaTour.ThoiGianBatDau = dateTimePickerStart.Value;
+            
+            giaTour.ThoiGianKetThuc = dateTimePickerEnd.Value;
             dgvGiaTour.Update();
             dgvGiaTour.Refresh();
             busGiaTour.suaGiaTour(giaTour);

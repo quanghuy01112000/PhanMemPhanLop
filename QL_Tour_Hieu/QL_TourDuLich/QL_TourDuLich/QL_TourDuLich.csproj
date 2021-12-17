@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -150,11 +153,11 @@
     <Compile Include="GUI\Form_QL_ChiTietTour.Designer.cs">
       <DependentUpon>Form_QL_ChiTietTour.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Form_Them_GiaTour.cs">
+    <Compile Include="GUI\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Form_Them_GiaTour.Designer.cs">
-      <DependentUpon>Form_Them_GiaTour.cs</DependentUpon>
+    <Compile Include="GUI\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,8 +176,8 @@
     <EmbeddedResource Include="GUI\Form_QL_ChiTietTour.resx">
       <DependentUpon>Form_QL_ChiTietTour.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Form_Them_GiaTour.resx">
-      <DependentUpon>Form_Them_GiaTour.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

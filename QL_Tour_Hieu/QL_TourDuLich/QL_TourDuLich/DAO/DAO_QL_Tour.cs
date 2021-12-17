@@ -85,6 +85,19 @@ namespace QL_TourDuLich.DAO
                             tour.dsDiaDiem.Add(dd);
                         }
                     }
+
+                    if (i.DoanDuLiches.Count>0)
+                    {
+                        var dsDoan = from doan in i.DoanDuLiches select doan;
+                        foreach (var j in dsDoan)
+                        {
+                            var dt = new ThongTinDoanTour();
+                            dt.maDoan = j.MaDoan;
+                            dt.ngayBd = (DateTime)j.NgayKhoiHanh;
+                            dt.ngayKt = (DateTime)j.NgayKetThuc;
+                            tour.dsDoanTour.Add(dt);
+                        }
+                    }
                     dsTour.Add(tour);
                 }
                 return dsTour;

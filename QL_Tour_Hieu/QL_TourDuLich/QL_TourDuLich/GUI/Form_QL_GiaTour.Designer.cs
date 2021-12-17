@@ -51,7 +51,6 @@ namespace QL_TourDuLich.GUI
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtMaGia = new System.Windows.Forms.TextBox();
-            this.txtMaTour = new System.Windows.Forms.TextBox();
             this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.btnSua = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -66,6 +65,7 @@ namespace QL_TourDuLich.GUI
             this.dateTimePickerEndLoc = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.cbGiaStartLoc = new System.Windows.Forms.ComboBox();
+            this.comboBoxMaTour = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaTour)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -235,8 +235,8 @@ namespace QL_TourDuLich.GUI
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtMaGia, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtMaTour, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtThanhTien, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxMaTour, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(890, 95);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -292,7 +292,7 @@ namespace QL_TourDuLich.GUI
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Mã Tour";
+            this.label2.Text = "TênTour";
             // 
             // label3
             // 
@@ -336,15 +336,6 @@ namespace QL_TourDuLich.GUI
             this.txtMaGia.Name = "txtMaGia";
             this.txtMaGia.Size = new System.Drawing.Size(168, 27);
             this.txtMaGia.TabIndex = 5;
-            // 
-            // txtMaTour
-            // 
-            this.txtMaTour.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtMaTour.Location = new System.Drawing.Point(174, 91);
-            this.txtMaTour.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMaTour.Name = "txtMaTour";
-            this.txtMaTour.Size = new System.Drawing.Size(168, 27);
-            this.txtMaTour.TabIndex = 6;
             // 
             // txtThanhTien
             // 
@@ -506,6 +497,16 @@ namespace QL_TourDuLich.GUI
             this.cbGiaStartLoc.Size = new System.Drawing.Size(271, 28);
             this.cbGiaStartLoc.TabIndex = 9;
             // 
+            // comboBoxMaTour
+            // 
+            this.comboBoxMaTour.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBoxMaTour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMaTour.FormattingEnabled = true;
+            this.comboBoxMaTour.Location = new System.Drawing.Point(173, 92);
+            this.comboBoxMaTour.Name = "comboBoxMaTour";
+            this.comboBoxMaTour.Size = new System.Drawing.Size(225, 28);
+            this.comboBoxMaTour.TabIndex = 14;
+            // 
             // Form_QL_GiaTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -551,7 +552,6 @@ namespace QL_TourDuLich.GUI
         private System.Windows.Forms.TextBox txtThanhTien;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtMaGia;
-        private System.Windows.Forms.TextBox txtMaTour;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLamMoi;
@@ -572,5 +572,6 @@ namespace QL_TourDuLich.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKetThuc;
         private System.Windows.Forms.DateTimePicker dateTimePickerStart;
         private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
+        private System.Windows.Forms.ComboBox comboBoxMaTour;
     }
 }

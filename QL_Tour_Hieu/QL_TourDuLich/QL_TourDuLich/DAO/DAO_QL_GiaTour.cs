@@ -31,6 +31,20 @@ namespace QL_TourDuLich.DAO
 
         }
 
+        public List<TourDuLich> getDSTenTour()
+        {
+            List<TourDuLich> dsTenTour = new List<TourDuLich>();
+            using (TourDLEntities db = new TourDLEntities())
+            {
+
+                var table = from l in db.TourDuLiches
+                            select l;
+                return table.ToList();
+            }
+            
+        }
+
+
         public Boolean suaGiaTour(GiaTour giaTour)
         {
             using (TourDLEntities db = new TourDLEntities())
