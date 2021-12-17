@@ -7,7 +7,7 @@ using QL_TourDuLich.DAO;
 
 namespace QL_TourDuLich.BUS
 {
-    class BUS_QL_KhachHang
+    partial class KhachHang
     {
         public static List<KhachHang> listKhachHang = null;
         public static List<string> lstGioiTinh = new List<string>(new string[] { "Nam", "Nữ", "Khác" });

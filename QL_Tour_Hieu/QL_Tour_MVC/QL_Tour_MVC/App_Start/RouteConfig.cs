@@ -16,7 +16,7 @@ namespace QL_Tour_MVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "TourDuLiches", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

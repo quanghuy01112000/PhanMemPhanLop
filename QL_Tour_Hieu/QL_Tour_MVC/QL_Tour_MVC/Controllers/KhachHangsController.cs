@@ -13,11 +13,21 @@ namespace QL_Tour_MVC.Controllers
     public class KhachHangsController : Controller
     {
         private TourDLEntities db = new TourDLEntities();
-
+        private KhachHang kh = new KhachHang();
         // GET: KhachHangs
-        public ActionResult Index()
+        public ActionResult Index(String q)
         {
-            return View(db.KhachHangs.ToList());
+            //return View(db.KhachHangs.ToList());
+            List<KhachHang> lsKH;
+            kh.getDSKhachHang();
+            //var tourDuLiches = db.TourDuLiches.Include(t => t.LoaiHinhDuLich);
+            if (!String.IsNullOrEmpty(q))
+            {
+                lsKH = kh.timKiemKhachHang(q);
+            }
+            else
+                lsKH = KhachHang.listKhachHang;
+            return View(lsKH);
         }
 
         // GET: KhachHangs/Details/5

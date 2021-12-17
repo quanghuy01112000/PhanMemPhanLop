@@ -7,7 +7,7 @@ using QL_TourDuLich.DAO;
 
 namespace QL_TourDuLich.BUS
 {
-    partial class BUS_QL_LoaiHinh
+    partial class LoaiHinhDuLich
     {
         public static List<LoaiHinhDuLich> listLoaiHinh = null;
         DAO_QL_LoaiHinh daoLoaiHinh = new DAO_QL_LoaiHinh();

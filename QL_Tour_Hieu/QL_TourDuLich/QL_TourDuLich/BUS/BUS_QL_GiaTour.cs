@@ -7,7 +7,7 @@ using QL_TourDuLich.DAO;
 
 namespace QL_TourDuLich.BUS
 {
-    class BUS_QL_GiaTour
+    partial class GiaTour
     {
         public static List<GiaTour> listGiaTour = null;
         public static List<TourDuLich> listTour = null;

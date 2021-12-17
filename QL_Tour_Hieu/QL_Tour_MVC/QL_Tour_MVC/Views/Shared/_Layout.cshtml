@@ -15,14 +15,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Tour", "Index", "TourDuLiches", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Đoàn du lịch", "Index", "DoanDuLiches")</li>
+                    <li>@Html.ActionLink("Khách hàng", "Index", "KhachHangs")</li>
+                    <li>@Html.ActionLink("Địa điểm", "Index", "DiaDiems")</li>
+                    <li>@Html.ActionLink("Nhân viên", "Index", "NhanViens")</li>
+                    <li>@Html.ActionLink("Giá Tour", "Index", "GiaTours")</li>
+                    <li>@Html.ActionLink("Chi phí", "Index", "ChiPhis")</li>
+                    <li>@Html.ActionLink("Loại chi phí", "Index", "LoaiChiPhis")</li>
+                    <li>@Html.ActionLink("Loại hình du lịch", "Index", "LoaiHinhDuLiches")</li>
                 </ul>
             </div>
         </div>

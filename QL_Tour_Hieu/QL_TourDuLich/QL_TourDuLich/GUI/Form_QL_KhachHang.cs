@@ -16,7 +16,7 @@ namespace QL_TourDuLich.GUI
     public partial class Form_QL_KhachHang : Form
     {
         DAO_QL_KhachHang daoKhachHang = new DAO_QL_KhachHang();
-        BUS_QL_KhachHang busKhachHang = new BUS_QL_KhachHang();
+        KhachHang busKhachHang = new KhachHang();
         List<KhachHang> listSearchKhachHang = new List<KhachHang>();
         int SelectedIndex = 0;
         static int maKhachHangMax = 0;
@@ -30,7 +30,7 @@ namespace QL_TourDuLich.GUI
         {
             dgvKH.AutoGenerateColumns = false;
             busKhachHang.getDSKhachHang();
-            dgvKH.DataSource = BUS_QL_KhachHang.listKhachHang;
+            dgvKH.DataSource = KhachHang.listKhachHang;
             dgvKH.Columns["MaKH"].DataPropertyName = "MaKhachHang";
             dgvKH.Columns["HoTen"].DataPropertyName = "HoTen";
             dgvKH.Columns["SoCMND"].DataPropertyName = "soCMND";
@@ -39,7 +39,7 @@ namespace QL_TourDuLich.GUI
             dgvKH.Columns["QuocTich"].DataPropertyName = "QuocTich";
             dgvKH.Columns["GioiTinh"].DataPropertyName = "GioiTinh";
 
-            comboBoxGioiTinh.DataSource = BUS_QL_KhachHang.lstGioiTinh;
+            comboBoxGioiTinh.DataSource = KhachHang.lstGioiTinh;
 
             dgvKH.AllowUserToOrderColumns = true;
 
@@ -72,7 +72,7 @@ namespace QL_TourDuLich.GUI
             listSearchKhachHang = busKhachHang.timKiemKhachHang(textSearch);
             if(txtTimKiemKhachHang.Text == "")
             {
-                dgvKH.DataSource = BUS_QL_KhachHang.listKhachHang;
+                dgvKH.DataSource = KhachHang.listKhachHang;
             }
             else
             {
@@ -104,7 +104,7 @@ namespace QL_TourDuLich.GUI
             khachHang.SDT = textSDT.Text;
             busKhachHang.themKhachHang(khachHang);
             dgvKH.DataSource = null;
-            dgvKH.DataSource = BUS_QL_KhachHang.listKhachHang;
+            dgvKH.DataSource = KhachHang.listKhachHang;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -132,7 +132,7 @@ namespace QL_TourDuLich.GUI
                     maKhachHangMax--;
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
                     dgvKH.DataSource = null;
-                    dgvKH.DataSource = BUS_QL_KhachHang.listKhachHang;
+                    dgvKH.DataSource = KhachHang.listKhachHang;
                 }
                 else
                 {

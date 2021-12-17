@@ -16,7 +16,7 @@ namespace QL_TourDuLich.GUI
     public partial class Form_QL_GiaTour : Form
     {
         DAO_QL_GiaTour daoGiaTour = new DAO_QL_GiaTour();
-        BUS_QL_GiaTour busGiaTour = new BUS_QL_GiaTour();
+        GiaTour busGiaTour = new GiaTour();
         List<GiaTour> listSearchGiaTour = new List<GiaTour>();
     
         List<TourDuLich> listTour = new List<TourDuLich>();
@@ -34,7 +34,7 @@ namespace QL_TourDuLich.GUI
             //load bảng tour
             dgvGiaTour.AutoGenerateColumns = false;//chặn tự tạo cột
             busGiaTour.getDSGiaTour();
-            dgvGiaTour.DataSource = BUS_QL_GiaTour.listGiaTour;//bus.getDanhsachTour();
+            dgvGiaTour.DataSource = GiaTour.listGiaTour;//bus.getDanhsachTour();
             dgvGiaTour.Columns["MaGia"].DataPropertyName = "MaGia";
             dgvGiaTour.Columns["MaTour"].DataPropertyName = "Tour";
             dgvGiaTour.Columns["ThanhTien"].DataPropertyName = "ThanhTien";
@@ -97,7 +97,7 @@ namespace QL_TourDuLich.GUI
             giaTour.ThoiGianKetThuc = dateTimePickerEnd.Value;
             busGiaTour.themGiaTour(giaTour);
             dgvGiaTour.DataSource = null;
-            dgvGiaTour.DataSource = BUS_QL_GiaTour.listGiaTour;
+            dgvGiaTour.DataSource = GiaTour.listGiaTour;
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -120,7 +120,7 @@ namespace QL_TourDuLich.GUI
             listSearchGiaTour = busGiaTour.timKiemGiaTour(textSearch);
             if (txtTimKiemGiaTour.Text == "")
             {
-                dgvGiaTour.DataSource = BUS_QL_GiaTour.listGiaTour;
+                dgvGiaTour.DataSource = GiaTour.listGiaTour;
             }
             else
             {
@@ -139,7 +139,7 @@ namespace QL_TourDuLich.GUI
                     maGiaTourMax--;
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
                     dgvGiaTour.DataSource = null;
-                    dgvGiaTour.DataSource = BUS_QL_GiaTour.listGiaTour;
+                    dgvGiaTour.DataSource = GiaTour.listGiaTour;
                 }
                 else
                 {

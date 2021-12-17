@@ -9,30 +9,32 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.HoTen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.soCMND)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GioiTinh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SDT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuocTich)
-        </th>
-        <th></th>
-    </tr>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HoTen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.soCMND)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioiTinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SDT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuocTich)
+            </th>
+            <th></th>
+        </tr>
+    </thead> 
+    @foreach (var item in Model) { 
 
-@foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.HoTen)
@@ -53,11 +55,12 @@
             @Html.DisplayFor(modelItem => item.QuocTich)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaKhachHang }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaKhachHang }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaKhachHang })
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaKhachHang }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaKhachHang }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MaKhachHang })
         </td>
     </tr>
-}
+
+        }
 
 </table>
