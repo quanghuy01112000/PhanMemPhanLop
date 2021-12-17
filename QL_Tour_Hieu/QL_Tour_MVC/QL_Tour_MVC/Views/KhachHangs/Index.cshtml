@@ -4,8 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Khách Hàng</h2>
+@using (Html.BeginForm("Index", "KhachHangs", FormMethod.Get))
+{
+    @Html.TextBox("q")
+    <input type="submit" value="Tìm" />
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -32,35 +36,36 @@
             </th>
             <th></th>
         </tr>
-    </thead> 
-    @foreach (var item in Model) { 
+    </thead>
+    @foreach (var item in Model)
+    {
 
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoTen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.soCMND)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GioiTinh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuocTich)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.MaKhachHang }) |
-            @Html.ActionLink("Details", "Details", new { id = item.MaKhachHang }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.MaKhachHang })
-        </td>
-    </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soCMND)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuocTich)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaKhachHang }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaKhachHang }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaKhachHang })
+            </td>
+        </tr>
 
-        }
+    }
 
 </table>

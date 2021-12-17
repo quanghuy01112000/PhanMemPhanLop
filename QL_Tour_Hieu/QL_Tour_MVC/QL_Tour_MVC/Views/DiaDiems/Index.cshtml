@@ -5,8 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
+<h2>Địa Điểm</h2>
+@using (Html.BeginForm("Index", "DiaDiems", FormMethod.Get))
+{
+    @Html.TextBox("q")
+    <input type="submit" value="Tìm" />
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -18,17 +22,18 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenDiaDiem)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaDiaDiem }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaDiaDiem }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaDiaDiem })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDiaDiem)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaDiaDiem }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaDiaDiem }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaDiaDiem })
+            </td>
+        </tr>
+    }
 
 </table>

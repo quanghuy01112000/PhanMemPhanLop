@@ -13,11 +13,20 @@ namespace QL_Tour_MVC.Controllers
     public class LoaiChiPhisController : Controller
     {
         private TourDLEntities db = new TourDLEntities();
-
+        private LoaiChiPhi lcp = new LoaiChiPhi();
         // GET: LoaiChiPhis
-        public ActionResult Index()
+        public ActionResult Index(String q)
         {
-            return View(db.LoaiChiPhis.ToList());
+            List<LoaiChiPhi> lsT;
+            lcp.getDSLoaiChiPhi();
+            //var tourDuLiches = db.TourDuLiches.Include(t => t.LoaiHinhDuLich);
+            if (!String.IsNullOrEmpty(q))
+            {
+                lsT = lcp.timKiemLoaiChiPhi(q);
+            }
+            else
+                lsT = LoaiChiPhi.listLoaiChiPhi;
+            return View(lsT);
         }
 
         // GET: LoaiChiPhis/Details/5

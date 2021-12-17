@@ -4,8 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Loại Chi Phí</h2>
+@using (Html.BeginForm("Index", "LoaiChiPhis", FormMethod.Get))
+{
+    @Html.TextBox("q")
+    <input type="submit" value="Tìm" />
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -17,17 +21,18 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenLoaiChiPhi)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaLoaiChiPhi }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaLoaiChiPhi }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaLoaiChiPhi })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLoaiChiPhi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaLoaiChiPhi }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaLoaiChiPhi }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaLoaiChiPhi })
+            </td>
+        </tr>
+    }
 
 </table>

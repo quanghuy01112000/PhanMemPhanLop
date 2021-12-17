@@ -4,8 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Chi Phí</h2>
+@using (Html.BeginForm("Index", "ChiPhis", FormMethod.Get))
+{
+    @Html.TextBox("q")
+    <input type="submit" value="Tìm" />
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -14,32 +18,33 @@
         <th>
             @Html.DisplayNameFor(model => model.SoTien)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.DoanDuLich.MaDoan)
-        </th>
+        </th>*@ 
         <th>
             @Html.DisplayNameFor(model => model.LoaiChiPhi.TenLoaiChiPhi)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoTien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DoanDuLich.MaDoan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LoaiChiPhi.TenLoaiChiPhi)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaChiPhi }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaChiPhi }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaChiPhi })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoTien)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.DoanDuLich.MaDoan)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiChiPhi.TenLoaiChiPhi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaChiPhi }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaChiPhi }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaChiPhi })
+            </td>
+        </tr>
+    }
 
 </table>

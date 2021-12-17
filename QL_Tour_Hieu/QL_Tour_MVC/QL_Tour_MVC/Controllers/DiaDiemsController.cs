@@ -13,11 +13,20 @@ namespace QL_Tour_MVC.Controllers
     public class DiaDiemsController : Controller
     {
         private TourDLEntities db = new TourDLEntities();
-
+        private DiaDiem dd = new DiaDiem();
         // GET: DiaDiems
-        public ActionResult Index()
+        public ActionResult Index(String q)
         {
-            return View(db.DiaDiems.ToList());
+            List<DiaDiem> lsT;
+            dd.getDSDiaDiem();
+            //var tourDuLiches = db.TourDuLiches.Include(t => t.LoaiHinhDuLich);
+            if (!String.IsNullOrEmpty(q))
+            {
+                lsT = dd.timKiemDiaDiem(q);
+            }
+            else
+                lsT = DiaDiem.listDiaDiem;
+            return View(lsT);
         }
 
         // GET: DiaDiems/Details/5

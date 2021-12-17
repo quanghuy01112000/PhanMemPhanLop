@@ -4,8 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Đoàn Du Lịch</h2>
+@using (Html.BeginForm("Index", "DoanDuLiches", FormMethod.Get))
+{
+    @Html.TextBox("q")
+    <input type="submit" value="Tìm" />
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -29,29 +33,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayKhoiHanh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayKetThuc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DoanhThu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TourDuLich.TenTour)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NoiDungTour.HanhTrinh)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaDoan }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaDoan }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaDoan })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayKhoiHanh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayKetThuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoanhThu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TourDuLich.TenTour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoiDungTour.HanhTrinh)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaDoan }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaDoan }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaDoan })
+            </td>
+        </tr>
+    }
 
 </table>

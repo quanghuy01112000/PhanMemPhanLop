@@ -4,8 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Giá Tour</h2>
+@using (Html.BeginForm("Index", "GiaTours", FormMethod.Get))
+{
+    @Html.TextBox("q")
+    <input type="submit" value="Tìm" />
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -26,26 +30,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThanhTien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TourDuLich.TenTour)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaGia }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaGia }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaGia })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TourDuLich.TenTour)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaGia }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaGia }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaGia })
+            </td>
+        </tr>
+    }
 
 </table>
