@@ -3,37 +3,98 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/responsive.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/color_2.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap-select.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/perfect-scrollbar.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/custom.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+<body class="dashboard dashboard_2">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_2">
+                    <h4>General</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="@Url.Action("Index", "TourDuLiches")"><i class="fa fa-flag orange_color2"></i> <span>Tour Du Lịch</span></a></li>
+                        <li><a href="@Url.Action("Index", "DoanDuLiches")"><i class="fa fa-bus purple_color2"></i> <span>Đoàn du lịch</span></a></li>
+                        <li><a href="@Url.Action("Index", "KhachHangs")"><i class="fa fa-user black"></i> <span>Khách hàng</span></a></li>
+                        <li><a href="@Url.Action("Index", "DiaDiems")"><i class="fa fa-globe blue2_color"></i> <span>Địa điểm</span></a></li>
+                        <li><a href="@Url.Action("Index", "NhanViens")"><i class="fa fa-briefcase blue2_color"></i> <span>Nhân viên</span></a></li>
+                        <li><a href="@Url.Action("Index", "GiaTours")"><i class="fa fa-money green_color"></i> <span>Giá Tour</span></a></li>
+                        <li><a href="@Url.Action("Index", "ChiPhis")"><i class="fa fa-credit-card light_silver"></i> <span>Chi phí</span></a></li>
+                        <li><a href="@Url.Action("Index", "LoaiChiPhis")"><i class="fa fa-pencil yellow_color"></i> <span>Loại chi phí</span></a></li>
+                        <li><a href="@Url.Action("Index", "LoaiHinhDuLiches")"><i class="fa fa-camera black"></i> <span>Loại hình du lịch</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                
+                            </div>
+                            <div class="right_topbar">
+                                
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        @RenderBody()
+                    </div>
+                    
+
+                    <!-- footer -->
+                    <div class="container-fluid">
+                        <div class="footer">
+                            <p>&copy; @DateTime.Now.Hour:@DateTime.Now.Minute    @DateTime.Now.Day-@DateTime.Now.Month-@DateTime.Now.Year - Make by Nhóm 1</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end dashboard inner -->
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <!-- JQuery-->
+    @Scripts.Render("~/Scripts/jquery.min.js")
+    @Scripts.Render("~/Scripts/popper.min.js")
+    @Scripts.Render("~/Scripts/bootstrap.min.js")
+    <!-- Wow animation-->
+    @Scripts.Render("~/Scripts/animate.js")
+    <!--owl-->
+    @Scripts.Render("~/Scripts/owl.carousel.js")
+    <!-- nice scrollbar-->
+    @Scripts.Render("~/Scripts/perfect-scrollbar.min.js")
+    <script>
+        var ps = new PerfectScrollbar('#sidebar');
+    </script>
+    <!-- fancy box js -->
+    @Scripts.Render("~/Scripts/jquery-3.3.1.min.js")
+    @Scripts.Render("~/Scripts/jquery.fancybox.min.js")
+    <!-- custom js -->
+    @Scripts.Render("~/Scripts/custom.js")
+    <!-- calendar file css -->
+    @Scripts.Render("~/Scripts/semantic.min.js")
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

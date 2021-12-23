@@ -13,11 +13,20 @@ namespace QL_Tour_MVC.Controllers
     public class LoaiHinhDuLichesController : Controller
     {
         private TourDLEntities db = new TourDLEntities();
-
+        private LoaiHinhDuLich lhdl = new LoaiHinhDuLich();
         // GET: LoaiHinhDuLiches
-        public ActionResult Index()
+        public ActionResult Index(String q)
         {
-            return View(db.LoaiHinhDuLiches.ToList());
+            List<LoaiHinhDuLich> lsT;
+            lhdl.getDSLoaiHinh();
+            //var tourDuLiches = db.TourDuLiches.Include(t => t.LoaiHinhDuLich);
+            if (!String.IsNullOrEmpty(q))
+            {
+                lsT = lhdl.timKiemLoaiHinh(q);
+            }
+            else
+                lsT = LoaiHinhDuLich.listLoaiHinh ;
+            return View(lsT);
         }
 
         // GET: LoaiHinhDuLiches/Details/5
@@ -27,7 +36,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiHinhDuLich loaiHinhDuLich = db.LoaiHinhDuLiches.Find(id);
+            LoaiHinhDuLich loaiHinhDuLich = lhdl.timKiemLoaiHinhById((int)id);
             if (loaiHinhDuLich == null)
             {
                 return HttpNotFound();
@@ -50,8 +59,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.LoaiHinhDuLiches.Add(loaiHinhDuLich);
-                db.SaveChanges();
+                lhdl.themLoaiHinh(loaiHinhDuLich);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +73,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiHinhDuLich loaiHinhDuLich = db.LoaiHinhDuLiches.Find(id);
+            LoaiHinhDuLich loaiHinhDuLich = lhdl.timKiemLoaiHinhById((int)id);
             if (loaiHinhDuLich == null)
             {
                 return HttpNotFound();
@@ -82,8 +90,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(loaiHinhDuLich).State = EntityState.Modified;
-                db.SaveChanges();
+                lhdl.suaLoaiHinh(loaiHinhDuLich);
                 return RedirectToAction("Index");
             }
             return View(loaiHinhDuLich);
@@ -96,7 +103,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiHinhDuLich loaiHinhDuLich = db.LoaiHinhDuLiches.Find(id);
+            LoaiHinhDuLich loaiHinhDuLich = lhdl.timKiemLoaiHinhById((int)id);
             if (loaiHinhDuLich == null)
             {
                 return HttpNotFound();
@@ -109,10 +116,10 @@ namespace QL_Tour_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            LoaiHinhDuLich loaiHinhDuLich = db.LoaiHinhDuLiches.Find(id);
-            db.LoaiHinhDuLiches.Remove(loaiHinhDuLich);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            LoaiHinhDuLich loaiHinhDuLich = lhdl.timKiemLoaiHinhById((int)id);
+            if(lhdl.xoaLoaiHinh(loaiHinhDuLich))
+                return RedirectToAction("Index");
+            return RedirectToAction("Delete");
         }
 
         protected override void Dispose(bool disposing)

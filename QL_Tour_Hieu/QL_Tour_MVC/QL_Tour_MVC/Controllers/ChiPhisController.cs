@@ -13,7 +13,7 @@ namespace QL_Tour_MVC.Controllers
     public class ChiPhisController : Controller
     {
         private TourDLEntities db = new TourDLEntities();
-
+        private ChiPhi cp = new ChiPhi();
         // GET: ChiPhis
         public ActionResult Index()
         {

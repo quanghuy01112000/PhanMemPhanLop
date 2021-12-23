@@ -7,7 +7,7 @@ using QL_TourDuLich.DAO;
 
 namespace QL_TourDuLich.BUS
 {
-    class BUS_QL_GiaTour
+    partial class GiaTour
     {
         public static List<GiaTour> listGiaTour = null;
         public static List<TourDuLich> listTour = null;
@@ -55,6 +55,11 @@ namespace QL_TourDuLich.BUS
         public List<TourDuLich> GetTours()
         {
             return daoGiaTour.getDSTenTour();
+        }
+
+        public GiaTour timKiemGiaTourById(int id)
+        {
+            return daoGiaTour.GetGiaTourById(id);
         }
     }
 }

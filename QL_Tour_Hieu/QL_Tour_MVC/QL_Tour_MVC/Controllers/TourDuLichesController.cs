@@ -122,9 +122,9 @@ namespace QL_Tour_MVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             TourDuLich tourDuLich = db.TourDuLiches.Find(id);
-            db.TourDuLiches.Remove(tourDuLich);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if(tour.xoaTour(tourDuLich))
+                return RedirectToAction("Index");
+            return RedirectToAction("Delete");
         }
 
         protected override void Dispose(bool disposing)

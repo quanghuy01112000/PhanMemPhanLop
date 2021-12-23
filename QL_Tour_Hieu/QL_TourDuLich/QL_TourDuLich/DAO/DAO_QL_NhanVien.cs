@@ -62,5 +62,13 @@ namespace QL_TourDuLich.DAO
             }
             return true;
         }
+        public NhanVien getNhanVienById(int Id)
+        {
+            using (TourDLEntities db = new TourDLEntities())
+            {
+                NhanVien nhanVien = db.NhanViens.Find(Id);
+                return nhanVien;
+            }
+        }
     }
 }

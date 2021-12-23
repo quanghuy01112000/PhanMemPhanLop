@@ -62,6 +62,14 @@ namespace QL_TourDuLich.DAO
             }
             return true;
         }
+        public LoaiChiPhi GetLoaiChiPhiById(int id)
+        {
+            using (TourDLEntities db = new TourDLEntities())
+            {
+                LoaiChiPhi loaiChiPhi = db.LoaiChiPhis.Find(id);
+                return loaiChiPhi;
+            }
+        }
     }
 
 }

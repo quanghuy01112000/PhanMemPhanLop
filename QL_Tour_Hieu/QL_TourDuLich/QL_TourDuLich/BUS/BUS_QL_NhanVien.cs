@@ -7,7 +7,7 @@ using QL_TourDuLich.DAO;
 
 namespace QL_TourDuLich.BUS
 {
-    class BUS_QL_NhanVien
+    partial class NhanVien
     {
         public static List<NhanVien> listNhanVien = null;
         DAO_QL_NhanVien daoNhanVien = new DAO_QL_NhanVien();
@@ -47,6 +47,11 @@ namespace QL_TourDuLich.BUS
         public int getMaNhanVienMax()
         {
             return listNhanVien.Last().MaNhanVien;
+        }
+
+        public NhanVien timKiemNhanVienById(int id)
+        {
+            return daoNhanVien.getNhanVienById(id);
         }
     }
 }

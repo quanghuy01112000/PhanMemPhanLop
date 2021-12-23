@@ -4,15 +4,15 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Xoá</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Bạn có muốn xoá không?</h3>
 <div>
-    <h4>DoanDuLich</h4>
+    <h4>Đoàn Du Lịch</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.NgayKhoiHanh)
+            Ngày Khởi Hành
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NgayKetThuc)
+            Ngày Kết Thúc
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DoanhThu)
+            Doanh Thu
         </dt>
 
         <dd>
@@ -36,7 +36,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TourDuLich.TenTour)
+            Tên Tour
         </dt>
 
         <dd>
@@ -44,7 +44,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NoiDungTour.HanhTrinh)
+            Hành Trình
         </dt>
 
         <dd>
@@ -57,8 +57,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Xoá" class="btn cur-p btn-outline-primary" /> | <button type="button" class="btn cur-p btn-outline-dark">@Html.ActionLink("Trở về", "Index")</button>
         </div>
     }
 </div>

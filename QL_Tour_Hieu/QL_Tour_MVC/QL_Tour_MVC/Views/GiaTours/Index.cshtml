@@ -4,48 +4,97 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2>Giá Tour</h2>
+        </div>
+    </div>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ThanhTien)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ThoiGianBatDau)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ThoiGianKetThuc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TourDuLich.TenTour)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThanhTien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TourDuLich.TenTour)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaGia }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaGia }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaGia })
-        </td>
-    </tr>
-}
+    <div class="col-md-12">
+        @using (Html.BeginForm("Index", "GiaTours", FormMethod.Get))
+        {
+            @Html.TextBox("q")
+            <input class="btn cur-p btn-secondary" type="submit" value="Tìm Giá Tour" />
+        }
+        <br />
+    </div>
 
-</table>
+    <div class="col-md-12 ">
+        <button type="button" class="btn cur-p btn-outline-primary ">@Html.ActionLink("Thêm mới", "Create")</button>
+
+    </div>
+
+    <div class="col-md-12 ">
+        <br />
+
+    </div>
+
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2>Danh sách giá tour</h2>
+                </div>
+            </div>
+            <div class="table_section padding_infor_info">
+                <div class="table-responsive-sm">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>
+                                    Thành Tiền
+                                </th>
+                                <th>
+                                    Thời Gian Bắt Đầu
+                                </th>
+                                <th>
+                                    Thời Gian Kết Thúc
+                                </th>
+                                <th>
+                                    Tên Tour
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ThanhTien)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TourDuLich.TenTour)
+                                </td>
+                                <td>
+                                    <button type="button" class="btn cur-p btn-outline-success">@Html.ActionLink("Sửa", "Edit", new { id = item.MaGia })</button> |
+                                    <button type="button" class="btn cur-p btn-outline-info">@Html.ActionLink("Chi tiết", "Details", new { id = item.MaGia })</button> |
+                                    <button type="button" class="btn cur-p btn-outline-warning">@Html.ActionLink("Xoá", "Delete", new { id = item.MaGia })</button>
+
+                                </td>
+                            </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

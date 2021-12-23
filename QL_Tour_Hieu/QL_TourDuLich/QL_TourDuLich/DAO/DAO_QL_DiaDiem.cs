@@ -62,5 +62,13 @@ namespace QL_TourDuLich.DAO
             }
             return true;
         }
+        public DiaDiem GetDiaDiemById(int id)
+        {
+            using (TourDLEntities db = new TourDLEntities())
+            {
+                DiaDiem diaDiem = db.DiaDiems.Find(id);
+                return diaDiem;
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@ using QL_TourDuLich.DAO;
 
 namespace QL_TourDuLich.BUS
 {
-    class BUS_QL_KhachHang
+    partial class KhachHang
     {
         public static List<KhachHang> listKhachHang = null;
         public static List<string> lstGioiTinh = new List<string>(new string[] { "Nam", "Nữ", "Khác" });
@@ -51,6 +51,11 @@ namespace QL_TourDuLich.BUS
                         || t.QuocTich.ToLower().Contains(textTim)
                         select t;
             return table.ToList();
+        }
+
+        public KhachHang timKiemKhachHangById(int id)
+        {
+            return daoKhachHang.timKhachHangById(id);
         }
     }
 }

@@ -4,60 +4,106 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2>Khách Hàng</h2>
+        </div>
+    </div>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.HoTen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.soCMND)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GioiTinh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SDT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuocTich)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoTen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.soCMND)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GioiTinh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuocTich)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaKhachHang }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaKhachHang }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaKhachHang })
-        </td>
-    </tr>
-}
+    <div class="col-md-12">
+        @using (Html.BeginForm("Index", "KhachHangs", FormMethod.Get))
+        {
+            @Html.TextBox("q")
+            <input class="btn cur-p btn-secondary" type="submit" value="Tìm kiếm khách hàng" />
+        }
+        <br />
+    </div>
 
-</table>
+        <div class="col-md-12 ">
+            <button type="button" class="btn cur-p btn-outline-primary ">@Html.ActionLink("Thêm mới", "Create")</button>
+        
+        </div>
+        
+        <div class="col-md-12 ">
+            <br />
+
+        </div>
+
+        <div class="col-md-12">
+            <div class="white_shd full margin_bottom_30">
+                <div class="full graph_head">
+                    <div class="heading1 margin_0">
+                        <h2>Danh sách khách hàng</h2>
+                    </div>
+                </div>
+                <div class="table_section padding_infor_info">
+                    <div class="table-responsive-sm">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>
+                                        Họ Tên
+                                    </th>
+                                    <th>
+                                        Số CMND
+                                    </th>
+                                    <th>
+                                        Địa Chỉ
+                                    </th>
+                                    <th>
+                                        Giới Tính
+                                    </th>
+                                    <th>
+                                        SDT
+                                    </th>
+                                    <th>
+                                        Quốc Tịch
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.HoTen)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.soCMND)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DiaChi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.GioiTinh)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SDT)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.QuocTich)
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn cur-p btn-outline-success">@Html.ActionLink("Sửa", "Edit", new { id = item.MaKhachHang })</button> |
+                                            <button type="button" class="btn cur-p btn-outline-info">@Html.ActionLink("Chi tiết", "Details", new { id = item.MaKhachHang })</button> |
+                                            <button type="button" class="btn cur-p btn-outline-warning">@Html.ActionLink("Xoá", "Delete", new { id = item.MaKhachHang })</button>
+
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+

@@ -13,11 +13,20 @@ namespace QL_Tour_MVC.Controllers
     public class LoaiChiPhisController : Controller
     {
         private TourDLEntities db = new TourDLEntities();
-
+        private LoaiChiPhi lcp = new LoaiChiPhi();
         // GET: LoaiChiPhis
-        public ActionResult Index()
+        public ActionResult Index(String q)
         {
-            return View(db.LoaiChiPhis.ToList());
+            List<LoaiChiPhi> lsT;
+            lcp.getDSLoaiChiPhi();
+            //var tourDuLiches = db.TourDuLiches.Include(t => t.LoaiHinhDuLich);
+            if (!String.IsNullOrEmpty(q))
+            {
+                lsT = lcp.timKiemLoaiChiPhi(q);
+            }
+            else
+                lsT = LoaiChiPhi.listLoaiChiPhi;
+            return View(lsT);
         }
 
         // GET: LoaiChiPhis/Details/5
@@ -27,7 +36,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiChiPhi loaiChiPhi = db.LoaiChiPhis.Find(id);
+            LoaiChiPhi loaiChiPhi = lcp.timKiemLoaiChiPhiById((int)id);
             if (loaiChiPhi == null)
             {
                 return HttpNotFound();
@@ -50,8 +59,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.LoaiChiPhis.Add(loaiChiPhi);
-                db.SaveChanges();
+                lcp.themLoaiChiPhi(loaiChiPhi);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +73,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiChiPhi loaiChiPhi = db.LoaiChiPhis.Find(id);
+            LoaiChiPhi loaiChiPhi = lcp.timKiemLoaiChiPhiById((int)id);
             if (loaiChiPhi == null)
             {
                 return HttpNotFound();
@@ -82,8 +90,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(loaiChiPhi).State = EntityState.Modified;
-                db.SaveChanges();
+                lcp.suaLoaiChiPhi(loaiChiPhi);
                 return RedirectToAction("Index");
             }
             return View(loaiChiPhi);
@@ -96,7 +103,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiChiPhi loaiChiPhi = db.LoaiChiPhis.Find(id);
+            LoaiChiPhi loaiChiPhi = lcp.timKiemLoaiChiPhiById((int)id);
             if (loaiChiPhi == null)
             {
                 return HttpNotFound();
@@ -109,10 +116,10 @@ namespace QL_Tour_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            LoaiChiPhi loaiChiPhi = db.LoaiChiPhis.Find(id);
-            db.LoaiChiPhis.Remove(loaiChiPhi);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            LoaiChiPhi loaiChiPhi = lcp.timKiemLoaiChiPhiById((int)id);
+            if(lcp.xoaLoaiChiPhi(loaiChiPhi))
+                return RedirectToAction("Index");
+            return RedirectToAction("Delete");
         }
 
         protected override void Dispose(bool disposing)

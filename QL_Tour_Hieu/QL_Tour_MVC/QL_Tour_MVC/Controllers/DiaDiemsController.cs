@@ -13,11 +13,20 @@ namespace QL_Tour_MVC.Controllers
     public class DiaDiemsController : Controller
     {
         private TourDLEntities db = new TourDLEntities();
-
+        private DiaDiem dd = new DiaDiem();
         // GET: DiaDiems
-        public ActionResult Index()
+        public ActionResult Index(String q)
         {
-            return View(db.DiaDiems.ToList());
+            List<DiaDiem> lsT;
+            dd.getDSDiaDiem();
+            //var tourDuLiches = db.TourDuLiches.Include(t => t.LoaiHinhDuLich);
+            if (!String.IsNullOrEmpty(q))
+            {
+                lsT = dd.timKiemDiaDiem(q);
+            }
+            else
+                lsT = DiaDiem.listDiaDiem;
+            return View(lsT);
         }
 
         // GET: DiaDiems/Details/5
@@ -27,7 +36,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DiaDiem diaDiem = db.DiaDiems.Find(id);
+            DiaDiem diaDiem = dd.timKiemDiaDiemById((int)id);
             if (diaDiem == null)
             {
                 return HttpNotFound();
@@ -50,8 +59,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.DiaDiems.Add(diaDiem);
-                db.SaveChanges();
+                dd.themDiaDiem(diaDiem);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +73,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DiaDiem diaDiem = db.DiaDiems.Find(id);
+            DiaDiem diaDiem = dd.timKiemDiaDiemById((int)id);
             if (diaDiem == null)
             {
                 return HttpNotFound();
@@ -82,8 +90,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(diaDiem).State = EntityState.Modified;
-                db.SaveChanges();
+                dd.suaDiaDiem(diaDiem);
                 return RedirectToAction("Index");
             }
             return View(diaDiem);
@@ -96,7 +103,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DiaDiem diaDiem = db.DiaDiems.Find(id);
+            DiaDiem diaDiem = dd.timKiemDiaDiemById((int)id);
             if (diaDiem == null)
             {
                 return HttpNotFound();
@@ -109,10 +116,10 @@ namespace QL_Tour_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DiaDiem diaDiem = db.DiaDiems.Find(id);
-            db.DiaDiems.Remove(diaDiem);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            DiaDiem diaDiem = dd.timKiemDiaDiemById((int)id);
+            if(dd.xoaDiaDiem(diaDiem))
+                return RedirectToAction("Index");
+            return RedirectToAction("Delete");
         }
 
         protected override void Dispose(bool disposing)

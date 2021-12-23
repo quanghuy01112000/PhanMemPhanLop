@@ -61,5 +61,14 @@ namespace QL_TourDuLich.DAO
             }
             return true;
         }
+        public LoaiHinhDuLich timLoaiHinhById(int id)
+        {
+            using (TourDLEntities db = new TourDLEntities())
+            {
+                LoaiHinhDuLich loaiHinh = db.LoaiHinhDuLiches.Find(id);
+                return loaiHinh;
+            }
+
+        }
     }
 }

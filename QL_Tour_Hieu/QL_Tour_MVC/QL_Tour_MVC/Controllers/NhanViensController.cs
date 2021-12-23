@@ -13,11 +13,20 @@ namespace QL_Tour_MVC.Controllers
     public class NhanViensController : Controller
     {
         private TourDLEntities db = new TourDLEntities();
-
+        private NhanVien nv = new NhanVien();
         // GET: NhanViens
-        public ActionResult Index()
+        public ActionResult Index(String q)
         {
-            return View(db.NhanViens.ToList());
+            List<NhanVien> lsT;
+            nv.getDSNhanVien();
+            //var tourDuLiches = db.TourDuLiches.Include(t => t.LoaiHinhDuLich);
+            if (!String.IsNullOrEmpty(q))
+            {
+                lsT = nv.timKiemNhanVien(q);
+            }
+            else
+                lsT = NhanVien.listNhanVien;
+            return View(lsT);
         }
 
         // GET: NhanViens/Details/5
@@ -27,7 +36,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhanVien nhanVien = db.NhanViens.Find(id);
+            NhanVien nhanVien = nv.timKiemNhanVienById((int)id);
             if (nhanVien == null)
             {
                 return HttpNotFound();
@@ -50,8 +59,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.NhanViens.Add(nhanVien);
-                db.SaveChanges();
+                nv.themNhanVien(nhanVien);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +73,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhanVien nhanVien = db.NhanViens.Find(id);
+            NhanVien nhanVien = nv.timKiemNhanVienById((int)id);
             if (nhanVien == null)
             {
                 return HttpNotFound();
@@ -82,8 +90,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nhanVien).State = EntityState.Modified;
-                db.SaveChanges();
+                nv.suaNhanVien(nhanVien);
                 return RedirectToAction("Index");
             }
             return View(nhanVien);
@@ -96,7 +103,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhanVien nhanVien = db.NhanViens.Find(id);
+            NhanVien nhanVien = nv.timKiemNhanVienById((int)id);
             if (nhanVien == null)
             {
                 return HttpNotFound();
@@ -109,10 +116,10 @@ namespace QL_Tour_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            NhanVien nhanVien = db.NhanViens.Find(id);
-            db.NhanViens.Remove(nhanVien);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            NhanVien nhanVien = nv.timKiemNhanVienById((int)id);
+            if(nv.xoaNhanVien(nhanVien))
+                return RedirectToAction("Index");
+            return RedirectToAction("Delete");
         }
 
         protected override void Dispose(bool disposing)

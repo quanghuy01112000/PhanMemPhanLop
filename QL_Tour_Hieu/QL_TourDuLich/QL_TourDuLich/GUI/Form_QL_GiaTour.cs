@@ -16,7 +16,7 @@ namespace QL_TourDuLich.GUI
     public partial class Form_QL_GiaTour : Form
     {
         DAO_QL_GiaTour daoGiaTour = new DAO_QL_GiaTour();
-        BUS_QL_GiaTour busGiaTour = new BUS_QL_GiaTour();
+        GiaTour busGiaTour = new GiaTour();
         List<GiaTour> listSearchGiaTour = new List<GiaTour>();
     
         List<TourDuLich> listTour = new List<TourDuLich>();
@@ -34,9 +34,9 @@ namespace QL_TourDuLich.GUI
             //load bảng tour
             dgvGiaTour.AutoGenerateColumns = false;//chặn tự tạo cột
             busGiaTour.getDSGiaTour();
-            dgvGiaTour.DataSource = BUS_QL_GiaTour.listGiaTour;//bus.getDanhsachTour();
+            dgvGiaTour.DataSource = GiaTour.listGiaTour;//bus.getDanhsachTour();
             dgvGiaTour.Columns["MaGia"].DataPropertyName = "MaGia";
-            dgvGiaTour.Columns["MaTour"].DataPropertyName = "Tour";
+            dgvGiaTour.Columns["MaTour"].DataPropertyName = "MaTour";
             dgvGiaTour.Columns["ThanhTien"].DataPropertyName = "ThanhTien";
             dgvGiaTour.Columns["NgayBatDau"].DataPropertyName = "ThoiGianBatDau";
             dgvGiaTour.Columns["NgayKetThuc"].DataPropertyName = "ThoiGianKetThuc";
@@ -81,14 +81,17 @@ namespace QL_TourDuLich.GUI
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            if (txtThanhTien.Text == "" || (dateTimePickerStart.Value > dateTimePickerEnd.Value))
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maGiaTourMax = busGiaTour.getMaGiaTourMax();
             GiaTour giaTour = new GiaTour();
             maGiaTourMax++;
             giaTour.MaGia = maGiaTourMax;
             giaTour.MaTour = Int32.Parse(comboBoxMaTour.Text);
-            
-
+        
             double tien = double.Parse(txtThanhTien.Text);
             giaTour.ThanhTien = tien;
 
@@ -97,11 +100,15 @@ namespace QL_TourDuLich.GUI
             giaTour.ThoiGianKetThuc = dateTimePickerEnd.Value;
             busGiaTour.themGiaTour(giaTour);
             dgvGiaTour.DataSource = null;
-            dgvGiaTour.DataSource = BUS_QL_GiaTour.listGiaTour;
+            dgvGiaTour.DataSource = GiaTour.listGiaTour;
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-
+            if (txtThanhTien.Text == "" || (dateTimePickerStart.Value > dateTimePickerEnd.Value))
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             GiaTour giaTour = dgvGiaTour.CurrentRow.DataBoundItem as GiaTour;
             giaTour.MaTour = Int32.Parse(comboBoxMaTour.Text);
             double tien = double.Parse(txtThanhTien.Text);
@@ -120,7 +127,7 @@ namespace QL_TourDuLich.GUI
             listSearchGiaTour = busGiaTour.timKiemGiaTour(textSearch);
             if (txtTimKiemGiaTour.Text == "")
             {
-                dgvGiaTour.DataSource = BUS_QL_GiaTour.listGiaTour;
+                dgvGiaTour.DataSource = GiaTour.listGiaTour;
             }
             else
             {
@@ -139,7 +146,7 @@ namespace QL_TourDuLich.GUI
                     maGiaTourMax--;
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
                     dgvGiaTour.DataSource = null;
-                    dgvGiaTour.DataSource = BUS_QL_GiaTour.listGiaTour;
+                    dgvGiaTour.DataSource = GiaTour.listGiaTour;
                 }
                 else
                 {

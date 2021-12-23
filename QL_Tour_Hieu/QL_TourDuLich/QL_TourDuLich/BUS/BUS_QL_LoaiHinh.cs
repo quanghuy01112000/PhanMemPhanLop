@@ -7,7 +7,7 @@ using QL_TourDuLich.DAO;
 
 namespace QL_TourDuLich.BUS
 {
-    partial class BUS_QL_LoaiHinh
+    partial class LoaiHinhDuLich
     {
         public static List<LoaiHinhDuLich> listLoaiHinh = null;
         DAO_QL_LoaiHinh daoLoaiHinh = new DAO_QL_LoaiHinh();
@@ -48,6 +48,10 @@ namespace QL_TourDuLich.BUS
         public int getMaLoaiHinhMax()
         {
             return listLoaiHinh.Last().MaLoaiHinh;
+        }
+        public LoaiHinhDuLich timKiemLoaiHinhById(int id)
+        {
+            return daoLoaiHinh.timLoaiHinhById(id);
         }
     }
 }

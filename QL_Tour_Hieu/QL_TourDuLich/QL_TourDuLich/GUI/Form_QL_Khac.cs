@@ -16,25 +16,25 @@ namespace QL_TourDuLich.GUI
     public partial class Form_QL_Khac : Form
     {
         DAO_QL_LoaiHinh daoLoaiHinh = new DAO_QL_LoaiHinh();
-        BUS_QL_LoaiHinh busLoaiHinh = new BUS_QL_LoaiHinh();
+        LoaiHinhDuLich busLoaiHinh = new LoaiHinhDuLich();
         List<LoaiHinhDuLich> listSearchLoaiHinh = new List<LoaiHinhDuLich>();
         int SelectedIndexLoaiHinh = 0;
         static int maLoaiHinhMax = 0;
 
         DAO_QL_DiaDiem daoDiaDiem = new DAO_QL_DiaDiem();
-        BUS_QL_DiaDiem busDiaDiem = new BUS_QL_DiaDiem();
+        DiaDiem busDiaDiem = new DiaDiem();
         List<DiaDiem> listSearchDiaDiem = new List<DiaDiem>();
         int SelectedIndexDiaDiem = 0;
         static int maDiaDiemMax = 0;
 
         DAO_QL_LoaiChiPhi daoLoaiChiPhu = new DAO_QL_LoaiChiPhi();
-        BUS_QL_LoaiChiPhi busLoaiChiPhi = new BUS_QL_LoaiChiPhi();
+        LoaiChiPhi busLoaiChiPhi = new LoaiChiPhi();
         List<LoaiChiPhi> listSearchLoaiChiPhi = new List<LoaiChiPhi>();
         int SelectedIndexLoaiChiPhi = 0;
         static int maLoaiChiPhiMax = 0;
 
         DAO_QL_NhanVien daoNhanVien = new DAO_QL_NhanVien();
-        BUS_QL_NhanVien busNhanVien = new BUS_QL_NhanVien();
+        NhanVien busNhanVien = new NhanVien();
         List<NhanVien> listSearchNhanVien = new List<NhanVien>();
         int SelectedIndexNhanVien = 0;
         static int maNhanVienMax = 0;
@@ -47,7 +47,7 @@ namespace QL_TourDuLich.GUI
         {
             dgv_LoaiHinh.AutoGenerateColumns = false;
             busLoaiHinh.getDSLoaiHinh();
-            dgv_LoaiHinh.DataSource = BUS_QL_LoaiHinh.listLoaiHinh;
+            dgv_LoaiHinh.DataSource = LoaiHinhDuLich.listLoaiHinh;
             dgv_LoaiHinh.Columns["MaLoaiHinh"].DataPropertyName = "MaLoaiHinh";
             dgv_LoaiHinh.Columns["TenLoaiHinh"].DataPropertyName = "TenLoaiHinh";
             dgv_LoaiHinh.AllowUserToOrderColumns = true;
@@ -55,7 +55,7 @@ namespace QL_TourDuLich.GUI
 
             dgvDiaDiem.AutoGenerateColumns = false;
             busDiaDiem.getDSDiaDiem();
-            dgvDiaDiem.DataSource = BUS_QL_DiaDiem.listDiaDiem;
+            dgvDiaDiem.DataSource = DiaDiem.listDiaDiem;
             dgvDiaDiem.Columns["MaDiadiem"].DataPropertyName = "MaDiaDiem";
             dgvDiaDiem.Columns["TenDiaDiem"].DataPropertyName = "TenDiaDiem";
             dgvDiaDiem.AllowUserToOrderColumns = true;
@@ -63,7 +63,7 @@ namespace QL_TourDuLich.GUI
 
             dgvLoaiChiPhi.AutoGenerateColumns = false;
             busLoaiChiPhi.getDSLoaiChiPhi();
-            dgvLoaiChiPhi.DataSource = BUS_QL_LoaiChiPhi.listLoaiChiPhi;
+            dgvLoaiChiPhi.DataSource = LoaiChiPhi.listLoaiChiPhi;
             dgvLoaiChiPhi.Columns["MaLoaiChiPhi"].DataPropertyName = "MaLoaiChiPhi";
             dgvLoaiChiPhi.Columns["TenLoaiChiPhi"].DataPropertyName = "TenLoaiChiPhi";
             dgvLoaiChiPhi.AllowUserToOrderColumns = true;
@@ -71,7 +71,7 @@ namespace QL_TourDuLich.GUI
 
             dgvNhanVien.AutoGenerateColumns = false;
             busNhanVien.getDSNhanVien();
-            dgvNhanVien.DataSource = BUS_QL_NhanVien.listNhanVien;
+            dgvNhanVien.DataSource = NhanVien.listNhanVien;
             dgvNhanVien.Columns["MaNhanVien"].DataPropertyName = "MaNhanVien";
             dgvNhanVien.Columns["TenNhanVien"].DataPropertyName = "TenNhanVien";
             dgvNhanVien.AllowUserToOrderColumns = true;
@@ -102,6 +102,11 @@ namespace QL_TourDuLich.GUI
 
         private void btn_Them_LoaiHinh_Click(object sender, EventArgs e)
         {
+            if (textBox_TenLoaiHinh.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maLoaiHinhMax = busLoaiHinh.getMaLoaiHinhMax();
             LoaiHinhDuLich loaiHinh = new LoaiHinhDuLich();
             maLoaiHinhMax++;
@@ -109,11 +114,16 @@ namespace QL_TourDuLich.GUI
             loaiHinh.TenLoaiHinh = textBox_TenLoaiHinh.Text;
             busLoaiHinh.themLoaiHinh(loaiHinh);
             dgv_LoaiHinh.DataSource = null;
-            dgv_LoaiHinh.DataSource = BUS_QL_LoaiHinh.listLoaiHinh;
+            dgv_LoaiHinh.DataSource = LoaiHinhDuLich.listLoaiHinh;
         }
 
         private void btn_Sua_LoaiHinh_Click(object sender, EventArgs e)
         {
+            if (textBox_TenLoaiHinh.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             LoaiHinhDuLich loaiHinh = dgv_LoaiHinh.CurrentRow.DataBoundItem as LoaiHinhDuLich;
             loaiHinh.TenLoaiHinh = textBox_TenLoaiHinh.Text;
             dgv_LoaiHinh.Update();
@@ -132,7 +142,7 @@ namespace QL_TourDuLich.GUI
                     maLoaiHinhMax--;
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
                     dgv_LoaiHinh.DataSource = null;
-                    dgv_LoaiHinh.DataSource = BUS_QL_LoaiHinh.listLoaiHinh;
+                    dgv_LoaiHinh.DataSource = LoaiHinhDuLich.listLoaiHinh;
                 } 
                 else
                 {
@@ -151,7 +161,7 @@ namespace QL_TourDuLich.GUI
             listSearchLoaiHinh = busLoaiHinh.timKiemLoaiHinh(textSearch);
             if(textBox_TimKiemLoaiHinh.Text == "")
             {
-                dgv_LoaiHinh.DataSource = BUS_QL_LoaiHinh.listLoaiHinh;
+                dgv_LoaiHinh.DataSource = LoaiHinhDuLich.listLoaiHinh;
             } else
             {
                 dgv_LoaiHinh.DataSource = listSearchLoaiHinh;
@@ -182,6 +192,11 @@ namespace QL_TourDuLich.GUI
 
         private void button_Them_DiaDiem_Click(object sender, EventArgs e)
         {
+            if (textBoxTenDiaDiem.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maDiaDiemMax = busDiaDiem.getMaDiaDiemMax();
             DiaDiem diaDiem = new DiaDiem();
             maDiaDiemMax++;
@@ -189,11 +204,16 @@ namespace QL_TourDuLich.GUI
             diaDiem.TenDiaDiem = textBoxTenDiaDiem.Text;
             busDiaDiem.themDiaDiem(diaDiem);
             dgvDiaDiem.DataSource = null;
-            dgvDiaDiem.DataSource = BUS_QL_DiaDiem.listDiaDiem;
+            dgvDiaDiem.DataSource = DiaDiem.listDiaDiem;
         }
 
         private void button_Sua_DiaDiem_Click(object sender, EventArgs e)
         {
+            if (textBoxTenDiaDiem.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             DiaDiem diaDiem = dgvDiaDiem.CurrentRow.DataBoundItem as DiaDiem;
             diaDiem.TenDiaDiem = textBoxTenDiaDiem.Text;
             dgvDiaDiem.Update();
@@ -212,7 +232,7 @@ namespace QL_TourDuLich.GUI
                     maDiaDiemMax--;
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
                     dgvDiaDiem.DataSource = null;
-                    dgvDiaDiem.DataSource = BUS_QL_DiaDiem.listDiaDiem;
+                    dgvDiaDiem.DataSource = DiaDiem.listDiaDiem;
                 }
                 else
                 {
@@ -231,7 +251,7 @@ namespace QL_TourDuLich.GUI
             listSearchDiaDiem = busDiaDiem.timKiemDiaDiem(textSearch);
             if (textBoxSearchDiaDiem.Text == "")
             {
-                dgvDiaDiem.DataSource = BUS_QL_DiaDiem.listDiaDiem;
+                dgvDiaDiem.DataSource = DiaDiem.listDiaDiem;
             }
             else
             {
@@ -263,6 +283,11 @@ namespace QL_TourDuLich.GUI
 
         private void button_Them_LoaiChiPhi_Click(object sender, EventArgs e)
         {
+            if (textBoxTenLoaiChiPhi.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maLoaiChiPhiMax = busLoaiChiPhi.getMaChiPhiMax();
             LoaiChiPhi loaiChiPhi = new LoaiChiPhi();
             maLoaiChiPhiMax++;
@@ -270,11 +295,16 @@ namespace QL_TourDuLich.GUI
             loaiChiPhi.TenLoaiChiPhi = textBoxTenLoaiChiPhi.Text;
             busLoaiChiPhi.themLoaiChiPhi(loaiChiPhi);
             dgvLoaiChiPhi.DataSource = null;
-            dgvLoaiChiPhi.DataSource = BUS_QL_LoaiChiPhi.listLoaiChiPhi;
+            dgvLoaiChiPhi.DataSource = LoaiChiPhi.listLoaiChiPhi;
         }
 
         private void button_Sua_LoaiChiPhi_Click(object sender, EventArgs e)
         {
+            if (textBoxTenLoaiChiPhi.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             LoaiChiPhi loaiChiPhi = dgvLoaiChiPhi.CurrentRow.DataBoundItem as LoaiChiPhi;
             loaiChiPhi.TenLoaiChiPhi = textBoxTenLoaiChiPhi.Text;
             dgvLoaiChiPhi.Update();
@@ -293,7 +323,7 @@ namespace QL_TourDuLich.GUI
                     maLoaiChiPhiMax--;
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
                     dgvLoaiChiPhi.DataSource = null;
-                    dgvLoaiChiPhi.DataSource = BUS_QL_LoaiChiPhi.listLoaiChiPhi;
+                    dgvLoaiChiPhi.DataSource = LoaiChiPhi.listLoaiChiPhi;
                 }
                 else
                 {
@@ -312,7 +342,7 @@ namespace QL_TourDuLich.GUI
             listSearchLoaiChiPhi = busLoaiChiPhi.timKiemLoaiChiPhi(textSearch);
             if (textBoxSearchLoaiChiPhi.Text == "")
             {
-                dgvLoaiChiPhi.DataSource = BUS_QL_LoaiChiPhi.listLoaiChiPhi;
+                dgvLoaiChiPhi.DataSource = LoaiChiPhi.listLoaiChiPhi;
             }
             else
             {
@@ -344,6 +374,11 @@ namespace QL_TourDuLich.GUI
 
         private void button_Them_NhanVien_Click(object sender, EventArgs e)
         {
+            if (textBoxTenNhanVien.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maNhanVienMax = busNhanVien.getMaNhanVienMax();
             NhanVien nhanVien = new NhanVien();
             maNhanVienMax++;
@@ -351,11 +386,16 @@ namespace QL_TourDuLich.GUI
             nhanVien.TenNhanVien = textBoxTenNhanVien.Text;
             busNhanVien.themNhanVien(nhanVien);
             dgvNhanVien.DataSource = null;
-            dgvNhanVien.DataSource = BUS_QL_NhanVien.listNhanVien;
+            dgvNhanVien.DataSource = NhanVien.listNhanVien;
         }
 
         private void button_Sua_NhanVien_Click(object sender, EventArgs e)
         {
+            if (textBoxTenNhanVien.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             NhanVien nhanVien = dgvNhanVien.CurrentRow.DataBoundItem as NhanVien;
             nhanVien.TenNhanVien = textBoxTenNhanVien.Text;
             dgvNhanVien.Update();
@@ -374,7 +414,7 @@ namespace QL_TourDuLich.GUI
                     maNhanVienMax--;
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
                     dgvNhanVien.DataSource = null;
-                    dgvNhanVien.DataSource = BUS_QL_NhanVien.listNhanVien;
+                    dgvNhanVien.DataSource = NhanVien.listNhanVien;
                 }
                 else
                 {
@@ -393,7 +433,7 @@ namespace QL_TourDuLich.GUI
             listSearchNhanVien = busNhanVien.timKiemNhanVien(textSearch);
             if (textBoxSearchNhanVien.Text == "")
             {
-                dgvNhanVien.DataSource = BUS_QL_NhanVien.listNhanVien;
+                dgvNhanVien.DataSource = NhanVien.listNhanVien;
             }
             else
             {
