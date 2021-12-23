@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{42A8CCCB-8551-4A54-BA08-CAD29426A250}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>QL_TourDuLich</RootNamespace>
     <AssemblyName>QL_TourDuLich</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>

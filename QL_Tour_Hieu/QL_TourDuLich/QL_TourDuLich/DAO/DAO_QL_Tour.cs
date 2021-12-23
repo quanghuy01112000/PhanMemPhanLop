@@ -169,8 +169,16 @@ namespace QL_TourDuLich.DAO
             using (TourDLEntities db = new TourDLEntities())
             {
                 TourDuLich tour = db.TourDuLiches.Find(Ma);
-                db.TourDuLiches.Remove(tour);
-                db.SaveChanges();
+                if(tour.DoanDuLiches.Count > 0 || tour.GiaTours.Count > 0 || tour.ThamQuans.Count > 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    db.TourDuLiches.Remove(tour);
+                    db.SaveChanges();
+                }
+                
             }
             return true;
         }

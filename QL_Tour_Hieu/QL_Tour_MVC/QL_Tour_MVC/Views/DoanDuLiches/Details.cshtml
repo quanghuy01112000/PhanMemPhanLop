@@ -53,6 +53,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaDoan }) |
-    @Html.ActionLink("Trở về", "Index")
+    <button type="button" class="btn cur-p btn-outline-success">@Html.ActionLink("Sửa", "Edit", new { id = Model.MaDoan })</button> | <button type="button" class="btn cur-p btn-outline-dark">@Html.ActionLink("Trở về", "Index")</button>
 </p>

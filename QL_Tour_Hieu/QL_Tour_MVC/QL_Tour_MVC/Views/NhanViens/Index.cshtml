@@ -4,35 +4,75 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Nhân Viên</h2>
-@using (Html.BeginForm("Index", "NhanViens", FormMethod.Get))
-{
-    @Html.TextBox("q")
-    <input type="submit" value="Tìm" />
-}
-<p>
-    @Html.ActionLink("Thêm mới", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Tên Nhân Viên
-        </th>
-        <th></th>
-    </tr>
+<div class="row column_title">
+    <div class="col-md-12">
+        <div class="page_title">
+            <h2>Nhân Viên</h2>
+        </div>
+    </div>
+</div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenNhanVien)
-            </td>
-            <td>
-                @Html.ActionLink("Sửa", "Edit", new { id = item.MaNhanVien }) |
-                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaNhanVien }) |
-                @Html.ActionLink("Xoá", "Delete", new { id = item.MaNhanVien })
-            </td>
-        </tr>
-    }
+<div class="row">
 
-</table>
+    <div class="col-md-12">
+        @using (Html.BeginForm("Index", "NhanViens", FormMethod.Get))
+        {
+            @Html.TextBox("q")
+            <input class="btn cur-p btn-secondary" type="submit" value="Tìm kiếm nhân viên" />
+        }
+        <br />
+    </div>
+
+    <div class="col-md-12 ">
+        <button type="button" class="btn cur-p btn-outline-primary ">@Html.ActionLink("Thêm mới", "Create")</button>
+
+    </div>
+
+    <div class="col-md-12 ">
+        <br />
+
+    </div>
+
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+            <div class="full graph_head">
+                <div class="heading1 margin_0">
+                    <h2>Danh sách nhân viên</h2>
+                </div>
+            </div>
+            <div class="table_section padding_infor_info">
+                <div class="table-responsive-sm">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>
+                                    Tên Nhân Viên
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TenNhanVien)
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn cur-p btn-outline-success">@Html.ActionLink("Sửa", "Edit", new { id = item.MaNhanVien })</button> |
+                                        <button type="button" class="btn cur-p btn-outline-info">@Html.ActionLink("Chi tiết", "Details", new { id = item.MaNhanVien })</button> |
+                                        <button type="button" class="btn cur-p btn-outline-warning">@Html.ActionLink("Xoá", "Delete", new { id = item.MaNhanVien })</button>
+
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
