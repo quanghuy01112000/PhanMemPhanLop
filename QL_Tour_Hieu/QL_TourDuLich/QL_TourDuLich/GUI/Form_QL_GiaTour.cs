@@ -36,7 +36,7 @@ namespace QL_TourDuLich.GUI
             busGiaTour.getDSGiaTour();
             dgvGiaTour.DataSource = GiaTour.listGiaTour;//bus.getDanhsachTour();
             dgvGiaTour.Columns["MaGia"].DataPropertyName = "MaGia";
-            dgvGiaTour.Columns["MaTour"].DataPropertyName = "Tour";
+            dgvGiaTour.Columns["MaTour"].DataPropertyName = "MaTour";
             dgvGiaTour.Columns["ThanhTien"].DataPropertyName = "ThanhTien";
             dgvGiaTour.Columns["NgayBatDau"].DataPropertyName = "ThoiGianBatDau";
             dgvGiaTour.Columns["NgayKetThuc"].DataPropertyName = "ThoiGianKetThuc";

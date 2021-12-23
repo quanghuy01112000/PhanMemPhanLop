@@ -41,5 +41,16 @@ namespace QL_TourDuLich.GUI
             Form_QL_Khac Khac = new Form_QL_Khac();
             Khac.ShowDialog();  
         }
+
+        private void btnChiPhi_Click(object sender, EventArgs e)
+        {
+            Form_QL_ChiPhi chiPhi = new Form_QL_ChiPhi();
+            chiPhi.ShowDialog();
+        }
+
+        private void buttonDoan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
