@@ -77,5 +77,14 @@ namespace QL_TourDuLich.DAO
             return true;
         }
 
+        public KhachHang timKhachHangById(int maKhachHang)
+        {
+            using (TourDLEntities db = new TourDLEntities())
+            {
+                KhachHang khachHang = db.KhachHangs.Find(maKhachHang);
+                return khachHang;
+            }
+            
+        }
     }
 }

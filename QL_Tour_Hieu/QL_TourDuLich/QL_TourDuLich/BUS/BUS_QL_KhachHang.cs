@@ -52,5 +52,10 @@ namespace QL_TourDuLich.BUS
                         select t;
             return table.ToList();
         }
+
+        public KhachHang timKiemKhachHangById(int id)
+        {
+            return daoKhachHang.timKhachHangById(id);
+        }
     }
 }

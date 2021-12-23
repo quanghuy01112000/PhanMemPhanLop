@@ -37,7 +37,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHangs.Find(id);
+            KhachHang khachHang = kh.timKiemKhachHangById((int)id);
             if (khachHang == null)
             {
                 return HttpNotFound();
@@ -60,8 +60,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.KhachHangs.Add(khachHang);
-                db.SaveChanges();
+                kh.themKhachHang(khachHang);
                 return RedirectToAction("Index");
             }
 
@@ -75,7 +74,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHangs.Find(id);
+            KhachHang khachHang = kh.timKiemKhachHangById((int)id);
             if (khachHang == null)
             {
                 return HttpNotFound();
@@ -92,8 +91,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(khachHang).State = EntityState.Modified;
-                db.SaveChanges();
+                kh.suaKhachHang(khachHang);
                 return RedirectToAction("Index");
             }
             return View(khachHang);
@@ -106,7 +104,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHangs.Find(id);
+            KhachHang khachHang = kh.timKiemKhachHangById((int)id);
             if (khachHang == null)
             {
                 return HttpNotFound();
@@ -119,10 +117,12 @@ namespace QL_Tour_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            KhachHang khachHang = db.KhachHangs.Find(id);
-            db.KhachHangs.Remove(khachHang);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            KhachHang khachHang = kh.timKiemKhachHangById((int)id);
+            if (kh.xoaKhachHang(khachHang))
+            {
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Delete");
         }
 
         protected override void Dispose(bool disposing)
