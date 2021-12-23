@@ -56,5 +56,10 @@ namespace QL_TourDuLich.BUS
         {
             return daoGiaTour.getDSTenTour();
         }
+
+        public GiaTour timKiemGiaTourById(int id)
+        {
+            return daoGiaTour.GetGiaTourById(id);
+        }
     }
 }

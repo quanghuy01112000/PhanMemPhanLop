@@ -36,7 +36,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DiaDiem diaDiem = db.DiaDiems.Find(id);
+            DiaDiem diaDiem = dd.timKiemDiaDiemById((int)id);
             if (diaDiem == null)
             {
                 return HttpNotFound();
@@ -59,8 +59,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.DiaDiems.Add(diaDiem);
-                db.SaveChanges();
+                dd.themDiaDiem(diaDiem);
                 return RedirectToAction("Index");
             }
 
@@ -74,7 +73,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DiaDiem diaDiem = db.DiaDiems.Find(id);
+            DiaDiem diaDiem = dd.timKiemDiaDiemById((int)id);
             if (diaDiem == null)
             {
                 return HttpNotFound();
@@ -91,8 +90,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(diaDiem).State = EntityState.Modified;
-                db.SaveChanges();
+                dd.suaDiaDiem(diaDiem);
                 return RedirectToAction("Index");
             }
             return View(diaDiem);
@@ -105,7 +103,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DiaDiem diaDiem = db.DiaDiems.Find(id);
+            DiaDiem diaDiem = dd.timKiemDiaDiemById((int)id);
             if (diaDiem == null)
             {
                 return HttpNotFound();
@@ -118,10 +116,10 @@ namespace QL_Tour_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DiaDiem diaDiem = db.DiaDiems.Find(id);
-            db.DiaDiems.Remove(diaDiem);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            DiaDiem diaDiem = dd.timKiemDiaDiemById((int)id);
+            if(dd.xoaDiaDiem(diaDiem))
+                return RedirectToAction("Index");
+            return RedirectToAction("Delete");
         }
 
         protected override void Dispose(bool disposing)

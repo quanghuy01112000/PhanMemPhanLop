@@ -49,5 +49,9 @@ namespace QL_TourDuLich.BUS
         {
             return listDiaDiem.Last().MaDiaDiem;
         }
+        public DiaDiem timKiemDiaDiemById(int id)
+        {
+            return daoDiaDiem.GetDiaDiemById(id);
+        }
     }
 }

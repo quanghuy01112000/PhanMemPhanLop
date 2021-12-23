@@ -48,5 +48,10 @@ namespace QL_TourDuLich.BUS
         {
             return listNhanVien.Last().MaNhanVien;
         }
+
+        public NhanVien timKiemNhanVienById(int id)
+        {
+            return daoNhanVien.getNhanVienById(id);
+        }
     }
 }

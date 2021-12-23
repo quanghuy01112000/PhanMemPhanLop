@@ -81,5 +81,14 @@ namespace QL_TourDuLich.DAO
             }
             return true;
         }
+
+        public GiaTour GetGiaTourById(int id)
+        {
+            using (TourDLEntities db = new TourDLEntities())
+            {
+                GiaTour giaTour = db.GiaTours.Find(id);
+                return giaTour;
+            }
+        }
     }
 }

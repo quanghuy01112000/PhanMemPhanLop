@@ -36,7 +36,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiChiPhi loaiChiPhi = db.LoaiChiPhis.Find(id);
+            LoaiChiPhi loaiChiPhi = lcp.timKiemLoaiChiPhiById((int)id);
             if (loaiChiPhi == null)
             {
                 return HttpNotFound();
@@ -59,8 +59,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.LoaiChiPhis.Add(loaiChiPhi);
-                db.SaveChanges();
+                lcp.themLoaiChiPhi(loaiChiPhi);
                 return RedirectToAction("Index");
             }
 
@@ -74,7 +73,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiChiPhi loaiChiPhi = db.LoaiChiPhis.Find(id);
+            LoaiChiPhi loaiChiPhi = lcp.timKiemLoaiChiPhiById((int)id);
             if (loaiChiPhi == null)
             {
                 return HttpNotFound();
@@ -91,8 +90,7 @@ namespace QL_Tour_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(loaiChiPhi).State = EntityState.Modified;
-                db.SaveChanges();
+                lcp.suaLoaiChiPhi(loaiChiPhi);
                 return RedirectToAction("Index");
             }
             return View(loaiChiPhi);
@@ -105,7 +103,7 @@ namespace QL_Tour_MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiChiPhi loaiChiPhi = db.LoaiChiPhis.Find(id);
+            LoaiChiPhi loaiChiPhi = lcp.timKiemLoaiChiPhiById((int)id);
             if (loaiChiPhi == null)
             {
                 return HttpNotFound();
@@ -118,10 +116,10 @@ namespace QL_Tour_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            LoaiChiPhi loaiChiPhi = db.LoaiChiPhis.Find(id);
-            db.LoaiChiPhis.Remove(loaiChiPhi);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            LoaiChiPhi loaiChiPhi = lcp.timKiemLoaiChiPhiById((int)id);
+            if(lcp.xoaLoaiChiPhi(loaiChiPhi))
+                return RedirectToAction("Index");
+            return RedirectToAction("Delete");
         }
 
         protected override void Dispose(bool disposing)

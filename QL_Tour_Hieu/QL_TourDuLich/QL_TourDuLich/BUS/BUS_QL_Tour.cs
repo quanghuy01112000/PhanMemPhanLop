@@ -108,6 +108,9 @@ namespace QL_TourDuLich.BUS
                 return true;
                 return false;
         }
-
+        public TourDuLich timKiemTourById(int id)
+        {
+            return dao.getTourById(id);
+        }
     }
 }

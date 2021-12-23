@@ -49,5 +49,9 @@ namespace QL_TourDuLich.BUS
         {
             return listLoaiHinh.Last().MaLoaiHinh;
         }
+        public LoaiHinhDuLich timKiemLoaiHinhById(int id)
+        {
+            return daoLoaiHinh.timLoaiHinhById(id);
+        }
     }
 }

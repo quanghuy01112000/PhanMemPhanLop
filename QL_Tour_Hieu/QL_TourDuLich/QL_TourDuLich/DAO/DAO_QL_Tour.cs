@@ -247,5 +247,13 @@ namespace QL_TourDuLich.DAO
                 return table.ToList();
             }
         }
+        public TourDuLich getTourById(int Id)
+        {
+            using (TourDLEntities db = new TourDLEntities())
+            {
+                TourDuLich tourDuLich = db.TourDuLiches.Find(Id);
+                return tourDuLich;
+            }
+        }
     }
 }

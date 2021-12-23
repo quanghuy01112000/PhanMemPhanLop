@@ -48,5 +48,9 @@ namespace QL_TourDuLich.BUS
         {
             return listLoaiChiPhi.Last().MaLoaiChiPhi;
         }
+        public LoaiChiPhi timKiemLoaiChiPhiById(int id)
+        {
+            return daoLoaiChiPhi.GetLoaiChiPhiById(id);
+        }
     }
 }
