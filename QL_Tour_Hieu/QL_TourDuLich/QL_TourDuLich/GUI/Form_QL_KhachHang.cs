@@ -92,6 +92,11 @@ namespace QL_TourDuLich.GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (txtTenKhachHang.Text == "" || txtDiaChi.Text == "" || textCMND.Text == "" || textQuocTich.Text == "" || textSDT.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maKhachHangMax = busKhachHang.getMaKhachHangMax();
             KhachHang khachHang = new KhachHang();
             maKhachHangMax++;
@@ -109,6 +114,11 @@ namespace QL_TourDuLich.GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (txtTenKhachHang.Text == "" || txtDiaChi.Text == "" || textCMND.Text == "" || textQuocTich.Text == "" || textSDT.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             KhachHang khachHang = dgvKH.CurrentRow.DataBoundItem as KhachHang;
             khachHang.HoTen = txtTenKhachHang.Text;
             khachHang.DiaChi = txtDiaChi.Text;

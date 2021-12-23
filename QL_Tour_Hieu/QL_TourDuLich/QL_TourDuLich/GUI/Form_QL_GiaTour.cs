@@ -81,14 +81,17 @@ namespace QL_TourDuLich.GUI
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            if (txtThanhTien.Text == "" || (dateTimePickerStart.Value > dateTimePickerEnd.Value))
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maGiaTourMax = busGiaTour.getMaGiaTourMax();
             GiaTour giaTour = new GiaTour();
             maGiaTourMax++;
             giaTour.MaGia = maGiaTourMax;
             giaTour.MaTour = Int32.Parse(comboBoxMaTour.Text);
-            
-
+        
             double tien = double.Parse(txtThanhTien.Text);
             giaTour.ThanhTien = tien;
 
@@ -101,7 +104,11 @@ namespace QL_TourDuLich.GUI
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-
+            if (txtThanhTien.Text == "" || (dateTimePickerStart.Value > dateTimePickerEnd.Value))
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             GiaTour giaTour = dgvGiaTour.CurrentRow.DataBoundItem as GiaTour;
             giaTour.MaTour = Int32.Parse(comboBoxMaTour.Text);
             double tien = double.Parse(txtThanhTien.Text);

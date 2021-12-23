@@ -102,6 +102,11 @@ namespace QL_TourDuLich.GUI
 
         private void btn_Them_LoaiHinh_Click(object sender, EventArgs e)
         {
+            if (textBox_TenLoaiHinh.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maLoaiHinhMax = busLoaiHinh.getMaLoaiHinhMax();
             LoaiHinhDuLich loaiHinh = new LoaiHinhDuLich();
             maLoaiHinhMax++;
@@ -114,6 +119,11 @@ namespace QL_TourDuLich.GUI
 
         private void btn_Sua_LoaiHinh_Click(object sender, EventArgs e)
         {
+            if (textBox_TenLoaiHinh.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             LoaiHinhDuLich loaiHinh = dgv_LoaiHinh.CurrentRow.DataBoundItem as LoaiHinhDuLich;
             loaiHinh.TenLoaiHinh = textBox_TenLoaiHinh.Text;
             dgv_LoaiHinh.Update();
@@ -182,6 +192,11 @@ namespace QL_TourDuLich.GUI
 
         private void button_Them_DiaDiem_Click(object sender, EventArgs e)
         {
+            if (textBoxTenDiaDiem.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maDiaDiemMax = busDiaDiem.getMaDiaDiemMax();
             DiaDiem diaDiem = new DiaDiem();
             maDiaDiemMax++;
@@ -194,6 +209,11 @@ namespace QL_TourDuLich.GUI
 
         private void button_Sua_DiaDiem_Click(object sender, EventArgs e)
         {
+            if (textBoxTenDiaDiem.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             DiaDiem diaDiem = dgvDiaDiem.CurrentRow.DataBoundItem as DiaDiem;
             diaDiem.TenDiaDiem = textBoxTenDiaDiem.Text;
             dgvDiaDiem.Update();
@@ -263,6 +283,11 @@ namespace QL_TourDuLich.GUI
 
         private void button_Them_LoaiChiPhi_Click(object sender, EventArgs e)
         {
+            if (textBoxTenLoaiChiPhi.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maLoaiChiPhiMax = busLoaiChiPhi.getMaChiPhiMax();
             LoaiChiPhi loaiChiPhi = new LoaiChiPhi();
             maLoaiChiPhiMax++;
@@ -275,6 +300,11 @@ namespace QL_TourDuLich.GUI
 
         private void button_Sua_LoaiChiPhi_Click(object sender, EventArgs e)
         {
+            if (textBoxTenLoaiChiPhi.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             LoaiChiPhi loaiChiPhi = dgvLoaiChiPhi.CurrentRow.DataBoundItem as LoaiChiPhi;
             loaiChiPhi.TenLoaiChiPhi = textBoxTenLoaiChiPhi.Text;
             dgvLoaiChiPhi.Update();
@@ -344,6 +374,11 @@ namespace QL_TourDuLich.GUI
 
         private void button_Them_NhanVien_Click(object sender, EventArgs e)
         {
+            if (textBoxTenNhanVien.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maNhanVienMax = busNhanVien.getMaNhanVienMax();
             NhanVien nhanVien = new NhanVien();
             maNhanVienMax++;
@@ -356,6 +391,11 @@ namespace QL_TourDuLich.GUI
 
         private void button_Sua_NhanVien_Click(object sender, EventArgs e)
         {
+            if (textBoxTenNhanVien.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             NhanVien nhanVien = dgvNhanVien.CurrentRow.DataBoundItem as NhanVien;
             nhanVien.TenNhanVien = textBoxTenNhanVien.Text;
             dgvNhanVien.Update();

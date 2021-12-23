@@ -54,23 +54,9 @@ namespace QL_TourDuLich.GUI
             this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.comboBoxMaTour = new System.Windows.Forms.ComboBox();
             this.btnSua = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnLamMoi = new System.Windows.Forms.Button();
-            this.btnLoc = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cbGiaEndLoc = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePickerStartLoc = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePickerEndLoc = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbGiaStartLoc = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaTour)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -88,10 +74,10 @@ namespace QL_TourDuLich.GUI
             this.panel2.Controls.Add(this.btnThem);
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Controls.Add(this.btnSua);
-            this.panel2.Location = new System.Drawing.Point(14, 200);
+            this.panel2.Location = new System.Drawing.Point(14, 13);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1320, 506);
+            this.panel2.Size = new System.Drawing.Size(1320, 695);
             this.panel2.TabIndex = 4;
             // 
             // btnXoa
@@ -168,7 +154,7 @@ namespace QL_TourDuLich.GUI
             this.dgvGiaTour.RowTemplate.Height = 24;
             this.dgvGiaTour.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvGiaTour.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGiaTour.Size = new System.Drawing.Size(848, 402);
+            this.dgvGiaTour.Size = new System.Drawing.Size(848, 588);
             this.dgvGiaTour.TabIndex = 4;
             this.dgvGiaTour.SelectionChanged += new System.EventHandler(this.dgvGiaTour_SelectionChanged);
             // 
@@ -211,7 +197,7 @@ namespace QL_TourDuLich.GUI
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(937, 453);
+            this.btnThem.Location = new System.Drawing.Point(948, 551);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(95, 44);
@@ -247,7 +233,7 @@ namespace QL_TourDuLich.GUI
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(417, 350);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(417, 413);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dateTimePickerStart
@@ -255,7 +241,7 @@ namespace QL_TourDuLich.GUI
             this.dateTimePickerStart.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dateTimePickerStart.CustomFormat = "dd-MM-yyyy";
             this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerStart.Location = new System.Drawing.Point(174, 233);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(174, 275);
             this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
             this.dateTimePickerStart.Size = new System.Drawing.Size(224, 23);
@@ -266,7 +252,7 @@ namespace QL_TourDuLich.GUI
             this.dateTimePickerEnd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dateTimePickerEnd.CustomFormat = "dd-MM-yyyy";
             this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(174, 303);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(174, 359);
             this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
             this.dateTimePickerEnd.Size = new System.Drawing.Size(224, 23);
@@ -276,7 +262,7 @@ namespace QL_TourDuLich.GUI
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 26);
+            this.label1.Location = new System.Drawing.Point(4, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 17);
@@ -287,7 +273,7 @@ namespace QL_TourDuLich.GUI
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 96);
+            this.label2.Location = new System.Drawing.Point(4, 114);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 17);
@@ -298,7 +284,7 @@ namespace QL_TourDuLich.GUI
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 166);
+            this.label3.Location = new System.Drawing.Point(4, 196);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(162, 17);
@@ -309,7 +295,7 @@ namespace QL_TourDuLich.GUI
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 236);
+            this.label4.Location = new System.Drawing.Point(4, 278);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(162, 17);
@@ -320,7 +306,7 @@ namespace QL_TourDuLich.GUI
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 306);
+            this.label5.Location = new System.Drawing.Point(4, 362);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(162, 17);
@@ -331,7 +317,7 @@ namespace QL_TourDuLich.GUI
             // 
             this.txtMaGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtMaGia.Enabled = false;
-            this.txtMaGia.Location = new System.Drawing.Point(174, 23);
+            this.txtMaGia.Location = new System.Drawing.Point(174, 29);
             this.txtMaGia.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaGia.Name = "txtMaGia";
             this.txtMaGia.Size = new System.Drawing.Size(168, 23);
@@ -340,7 +326,7 @@ namespace QL_TourDuLich.GUI
             // txtThanhTien
             // 
             this.txtThanhTien.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtThanhTien.Location = new System.Drawing.Point(174, 163);
+            this.txtThanhTien.Location = new System.Drawing.Point(174, 193);
             this.txtThanhTien.Margin = new System.Windows.Forms.Padding(4);
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.Size = new System.Drawing.Size(168, 23);
@@ -351,14 +337,14 @@ namespace QL_TourDuLich.GUI
             this.comboBoxMaTour.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBoxMaTour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMaTour.FormattingEnabled = true;
-            this.comboBoxMaTour.Location = new System.Drawing.Point(173, 94);
+            this.comboBoxMaTour.Location = new System.Drawing.Point(173, 112);
             this.comboBoxMaTour.Name = "comboBoxMaTour";
             this.comboBoxMaTour.Size = new System.Drawing.Size(225, 25);
             this.comboBoxMaTour.TabIndex = 14;
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(1132, 451);
+            this.btnSua.Location = new System.Drawing.Point(1158, 551);
             this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(88, 44);
@@ -367,146 +353,6 @@ namespace QL_TourDuLich.GUI
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.btnLamMoi);
-            this.panel1.Controls.Add(this.btnLoc);
-            this.panel1.Controls.Add(this.tableLayoutPanel2);
-            this.panel1.Location = new System.Drawing.Point(14, 14);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1320, 164);
-            this.panel1.TabIndex = 3;
-            // 
-            // btnLamMoi
-            // 
-            this.btnLamMoi.Location = new System.Drawing.Point(18, 109);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(130, 44);
-            this.btnLamMoi.TabIndex = 11;
-            this.btnLamMoi.Text = "làm mới";
-            this.btnLamMoi.UseVisualStyleBackColor = true;
-            // 
-            // btnLoc
-            // 
-            this.btnLoc.Location = new System.Drawing.Point(1162, 21);
-            this.btnLoc.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLoc.Name = "btnLoc";
-            this.btnLoc.Size = new System.Drawing.Size(145, 132);
-            this.btnLoc.TabIndex = 11;
-            this.btnLoc.Text = "Loc";
-            this.btnLoc.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.label11, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cbGiaEndLoc, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePickerStartLoc, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label10, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePickerEndLoc, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label8, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cbGiaStartLoc, 2, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(19, 21);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1116, 80);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(841, 23);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 17);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Giá tiền đến";
-            // 
-            // cbGiaEndLoc
-            // 
-            this.cbGiaEndLoc.FormattingEnabled = true;
-            this.cbGiaEndLoc.Location = new System.Drawing.Point(841, 44);
-            this.cbGiaEndLoc.Margin = new System.Windows.Forms.Padding(4);
-            this.cbGiaEndLoc.Name = "cbGiaEndLoc";
-            this.cbGiaEndLoc.Size = new System.Drawing.Size(271, 25);
-            this.cbGiaEndLoc.TabIndex = 5;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(4, 23);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 17);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Ngày bắt đầu";
-            // 
-            // dateTimePickerStartLoc
-            // 
-            this.dateTimePickerStartLoc.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePickerStartLoc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerStartLoc.Location = new System.Drawing.Point(4, 44);
-            this.dateTimePickerStartLoc.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePickerStartLoc.Name = "dateTimePickerStartLoc";
-            this.dateTimePickerStartLoc.Size = new System.Drawing.Size(271, 23);
-            this.dateTimePickerStartLoc.TabIndex = 6;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(283, 23);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 17);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Ngày kết thúc";
-            // 
-            // dateTimePickerEndLoc
-            // 
-            this.dateTimePickerEndLoc.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePickerEndLoc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerEndLoc.Location = new System.Drawing.Point(283, 44);
-            this.dateTimePickerEndLoc.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePickerEndLoc.Name = "dateTimePickerEndLoc";
-            this.dateTimePickerEndLoc.Size = new System.Drawing.Size(271, 23);
-            this.dateTimePickerEndLoc.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(562, 23);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 17);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Giá tiền từ";
-            // 
-            // cbGiaStartLoc
-            // 
-            this.cbGiaStartLoc.FormattingEnabled = true;
-            this.cbGiaStartLoc.Location = new System.Drawing.Point(562, 44);
-            this.cbGiaStartLoc.Margin = new System.Windows.Forms.Padding(4);
-            this.cbGiaStartLoc.Name = "cbGiaStartLoc";
-            this.cbGiaStartLoc.Size = new System.Drawing.Size(271, 25);
-            this.cbGiaStartLoc.TabIndex = 9;
-            // 
             // Form_QL_GiaTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -514,7 +360,6 @@ namespace QL_TourDuLich.GUI
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1348, 721);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_QL_GiaTour";
@@ -526,9 +371,6 @@ namespace QL_TourDuLich.GUI
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaTour)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,18 +395,6 @@ namespace QL_TourDuLich.GUI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtMaGia;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnLamMoi;
-        private System.Windows.Forms.Button btnLoc;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbGiaEndLoc;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateTimePickerStartLoc;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePickerEndLoc;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cbGiaStartLoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;

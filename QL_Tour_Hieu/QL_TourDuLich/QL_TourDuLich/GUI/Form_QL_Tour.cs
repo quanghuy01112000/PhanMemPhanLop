@@ -40,9 +40,16 @@ namespace QL_TourDuLich
             dgvTour.AllowUserToOrderColumns = true;
             //load combobox
             cbbLoaiHinh.DataSource = bus.getDSTenLoaiHinh();
+            cbLocLoaiTour.DataSource = bus.getDSTenLoaiHinh();
             cbbTrangThai.DataSource = TourDuLich.lstTrangThai;
+            cbLocTrangThai.DataSource = TourDuLich.lstTrangThai;
             //
             MaTourLonNhat = bus.getMaTourLonNhat();
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            dgvTour.DataSource = TourDuLich.lstTours;
         }
 
         private void btnChiTietTour_Click(object sender, EventArgs e)
@@ -55,7 +62,6 @@ namespace QL_TourDuLich
         private void dgvTour_SelectionChanged(object sender, EventArgs e)
         {
             SelectedIndex = dgvTour.CurrentCell.RowIndex;
-            cbLocLoaiTour.Text = SelectedIndex.ToString();
             TourDuLich tam=null;
             //khi xóa phần tử cuối lỗi IndexOutOfRangeException ko bít sửa sao nên bắt try catch 
             try
@@ -65,7 +71,7 @@ namespace QL_TourDuLich
                 txtTenTour.Text = tam.TenTour;
                 cbbLoaiHinh.Text = tam.tenLoaiTour;
                 cbbTrangThai.Text = tam.TrangThai;
-                txtThanhTien.Text = tam.giaTour.ToString();
+                txtDacDiem.Text = tam.DacDiem;
             }
             catch (IndexOutOfRangeException ex)
             {
@@ -75,11 +81,17 @@ namespace QL_TourDuLich
         
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (txtTenTour.Text == "" || txtDacDiem.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             TourDuLich tour = dgvTour.CurrentRow.DataBoundItem as TourDuLich;
             tour.TenTour = txtTenTour.Text;
             tour.tenLoaiTour = cbbLoaiHinh.Text;
             tour.TrangThai = cbbTrangThai.Text;
             tour.MaLoaiHinh = bus.getMaLoaiHinh(cbbLoaiHinh.Text);
+            tour.DacDiem = txtDacDiem.Text;
             dgvTour.Update();
             dgvTour.Refresh();
             //update csdl
@@ -88,15 +100,20 @@ namespace QL_TourDuLich
         //ok nè
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if(txtTenTour.Text == "" || txtDacDiem.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             TourDuLich tour = new TourDuLich();
             MaTourLonNhat++;
             tour.MaTour = MaTourLonNhat;
             tour.TenTour = txtTenTour.Text;
             tour.tenLoaiTour = cbbLoaiHinh.Text;
-            tour.DacDiem = "thu nghiem";
+            tour.DacDiem = txtDacDiem.Text;
             tour.MaLoaiHinh = bus.getMaLoaiHinh(cbbLoaiHinh.Text);
             tour.HienThi = true;
-            //tour.giaTour = 2000;
+            tour.giaTour = 2000;
             tour.TrangThai = cbbTrangThai.Text;
             //them trong csdl + lstTour
             bus.themTour(tour);
@@ -108,7 +125,7 @@ namespace QL_TourDuLich
         {
             txtMaTour.Text = "";
             txtTenTour.Text = "";
-            txtThanhTien.Text = "";
+            txtDacDiem.Text = "";
             cbbLoaiHinh.Text = "";
             cbbTrangThai.Text = "";
         }
@@ -150,12 +167,10 @@ namespace QL_TourDuLich
         //cái này để kiểm tra 1 số thứ 
         private void btnLoc_Click(object sender, EventArgs e)
         {
-            String tam = "";
-            foreach (var i in TourDuLich.lstTours)
-            {
-                tam += (i.MaTour+" "+i.TenTour+" "+i.tenLoaiTour+" "+i.TrangThai+" "+i.giaTour+" "+i.DacDiem+"\n");
-            }
-            MessageBox.Show(tam, "Thông báo", MessageBoxButtons.OK);
+            String loaiTour = cbLocLoaiTour.Text.ToLower();
+            String trangThai = cbLocTrangThai.Text.ToLower();
+            lstSearch = bus.locTour(loaiTour,trangThai);
+            dgvTour.DataSource = lstSearch;
         }
         private void txtTenTour_TextChanged(object sender, EventArgs e)
         {
@@ -172,5 +187,7 @@ namespace QL_TourDuLich
                 txtTenTour.ForeColor = Color.Black;
             }
         }
+
+        
     }
 }

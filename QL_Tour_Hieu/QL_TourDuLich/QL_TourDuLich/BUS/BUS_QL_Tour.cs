@@ -81,6 +81,14 @@ namespace QL_TourDuLich.BUS
                         select t;
             return table.ToList();  
         }
+        public List<TourDuLich> locTour(String loaiTour, String trangThai)
+        {
+            var table = from t in TourDuLich.lstTours
+                        where t.tenLoaiTour.ToLower().Contains(loaiTour) || t.TrangThai.ToLower().Contains(trangThai)
+                        select t;
+            return table.ToList();
+        }
+
         public List<String> getDanhSachTenDiaDiem()
         {
             return dao.getDanhSachTenDiaDiem();

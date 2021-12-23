@@ -76,6 +76,11 @@ namespace QL_TourDuLich.GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (txtSoTien.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             maChiPhiMax = busChiPhi.getMaChiPhiMax();
             ChiPhi chiPhi = new ChiPhi();
             maChiPhiMax++;
@@ -92,6 +97,11 @@ namespace QL_TourDuLich.GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (txtSoTien.Text == "")
+            {
+                MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
+                return;
+            }
             ChiPhi chiPhi = dgvChiPhi.CurrentRow.DataBoundItem as ChiPhi;
             chiPhi.MaDoan = Int32.Parse(comboBoxMaDoan.Text);
             double tien = double.Parse(txtSoTien.Text);

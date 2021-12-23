@@ -50,7 +50,8 @@ namespace QL_TourDuLich.GUI
 
         private void buttonDoan_Click(object sender, EventArgs e)
         {
-
+            Form_QL_Doan doan = new Form_QL_Doan();
+            doan.ShowDialog();
         }
     }
 }

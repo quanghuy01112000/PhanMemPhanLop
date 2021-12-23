@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{42A8CCCB-8551-4A54-BA08-CAD29426A250}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>QL_TourDuLich</RootNamespace>
     <AssemblyName>QL_TourDuLich</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -58,7 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BUS_QL_ChiPhi.cs" />
     <Compile Include="BUS\BUS_QL_DiaDiem.cs" />
+    <Compile Include="BUS\BUS_QL_Doan.cs" />
     <Compile Include="BUS\BUS_QL_GiaTour.cs" />
     <Compile Include="BUS\BUS_QL_KhachHang.cs" />
     <Compile Include="BUS\BUS_QL_LoaiChiPhi.cs" />
@@ -116,13 +118,33 @@
     <Compile Include="BUS\TourDuLich.cs">
       <DependentUpon>ModelQLTour.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\DAO_QL_ChiPhi.cs" />
     <Compile Include="DAO\DAO_QL_DiaDiem.cs" />
+    <Compile Include="DAO\DAO_QL_Doan.cs" />
     <Compile Include="DAO\DAO_QL_GiaTour.cs" />
     <Compile Include="DAO\DAO_QL_KhachHang.cs" />
     <Compile Include="DAO\DAO_QL_LoaiChiPhi.cs" />
     <Compile Include="DAO\DAO_QL_LoaiHinh.cs" />
     <Compile Include="DAO\DAO_QL_NhanVien.cs" />
     <Compile Include="DAO\DAO_QL_Tour.cs" />
+    <Compile Include="GUI\Form_QL_ChiPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_QL_ChiPhi.Designer.cs">
+      <DependentUpon>Form_QL_ChiPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_QL_ChiTietDoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_QL_ChiTietDoan.Designer.cs">
+      <DependentUpon>Form_QL_ChiTietDoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_QL_Doan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_QL_Doan.Designer.cs">
+      <DependentUpon>Form_QL_Doan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Form_QL_GiaTour.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +175,12 @@
     <Compile Include="GUI\Form_QL_ChiTietTour.Designer.cs">
       <DependentUpon>Form_QL_ChiTietTour.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Form_ThemKhach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_ThemKhach.Designer.cs">
+      <DependentUpon>Form_ThemKhach.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +189,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Form_QL_ChiPhi.resx">
+      <DependentUpon>Form_QL_ChiPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_QL_Doan.resx">
+      <DependentUpon>Form_QL_Doan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form_QL_GiaTour.resx">
       <DependentUpon>Form_QL_GiaTour.cs</DependentUpon>
     </EmbeddedResource>
